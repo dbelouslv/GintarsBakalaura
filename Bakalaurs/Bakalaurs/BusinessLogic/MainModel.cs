@@ -8,6 +8,10 @@ namespace Bakalaurs.BusinessLogic.MainModel
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int Number { get; set; }
+        public int Points { get; set; }
+        public int Missed { get; set; }
+        public int REB { get; set; }
+        public int AST { get; set; }
         public Team Team { get; set; }
     }
 
@@ -20,6 +24,7 @@ namespace Bakalaurs.BusinessLogic.MainModel
     {
         public int Id { get; set; }
         public string Title { get; set; }
+        public int Points { get; set; }
     }
 
     public enum PanelType

@@ -513,7 +513,7 @@
             // 
             this.StatisticOfGamePanel.Location = new System.Drawing.Point(178, 45);
             this.StatisticOfGamePanel.Name = "StatisticOfGamePanel";
-            this.StatisticOfGamePanel.Size = new System.Drawing.Size(0, 518);
+            this.StatisticOfGamePanel.Size = new System.Drawing.Size(810, 518);
             this.StatisticOfGamePanel.TabIndex = 11;
             // 
             // ManageGame
@@ -566,6 +566,7 @@
             this.saveButton.TabIndex = 6;
             this.saveButton.Text = "SAVE";
             this.saveButton.UseVisualStyleBackColor = false;
+            this.saveButton.Click += new System.EventHandler(this.SaveData);
             // 
             // astButton
             // 
@@ -579,6 +580,7 @@
             this.astButton.TabIndex = 5;
             this.astButton.Text = "AST";
             this.astButton.UseVisualStyleBackColor = false;
+            this.astButton.Click += new System.EventHandler(this.astButton_Click);
             // 
             // missedButton
             // 
@@ -592,6 +594,7 @@
             this.missedButton.TabIndex = 4;
             this.missedButton.Text = "MSD";
             this.missedButton.UseVisualStyleBackColor = false;
+            this.missedButton.Click += new System.EventHandler(this.missedButton_Click);
             // 
             // rebButton
             // 
@@ -605,6 +608,7 @@
             this.rebButton.TabIndex = 3;
             this.rebButton.Text = "REB";
             this.rebButton.UseVisualStyleBackColor = false;
+            this.rebButton.Click += new System.EventHandler(this.rebButton_Click);
             // 
             // addThreePtButton
             // 
@@ -618,6 +622,7 @@
             this.addThreePtButton.TabIndex = 2;
             this.addThreePtButton.Text = "3PT";
             this.addThreePtButton.UseVisualStyleBackColor = false;
+            this.addThreePtButton.Click += new System.EventHandler(this.addThreePtButton_Click);
             // 
             // addTwoPtButton
             // 
@@ -631,6 +636,7 @@
             this.addTwoPtButton.TabIndex = 1;
             this.addTwoPtButton.Text = "2PT";
             this.addTwoPtButton.UseVisualStyleBackColor = false;
+            this.addTwoPtButton.Click += new System.EventHandler(this.addTwoPtButton_Click);
             // 
             // addOnePtButton
             // 
@@ -644,6 +650,7 @@
             this.addOnePtButton.TabIndex = 0;
             this.addOnePtButton.Text = "1PT";
             this.addOnePtButton.UseVisualStyleBackColor = false;
+            this.addOnePtButton.Click += new System.EventHandler(this.AddOnePointToActivePlayer);
             // 
             // Form1
             // 

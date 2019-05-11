@@ -89,7 +89,41 @@ namespace Bakalaurs
                 };
 
                 radioButton.CheckedChanged += new EventHandler(SetActivePlayer);
+                ManageGame.Controls.Add(radioButton);
                 startY += 20;
+            }
+        }
+
+        private void SetPlayersStatistic()
+        {
+            var titles = new Label
+            {
+                AutoSize = true,
+                Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204))),
+                ForeColor = System.Drawing.Color.White,
+                Location = new System.Drawing.Point(300, 0),
+                Name = "Title",
+                Size = new System.Drawing.Size(200, 25),
+                Text = $"Numurs  Vārds  Uzvārds  Komanda  Punkti"
+            };
+            StatisticOfGamePanel.Controls.Add(titles);
+
+            int startX = 300, startY = 50;
+            foreach (var player in players)
+            {
+                var label = new Label
+                {
+                    AutoSize = true,
+                    Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204))),
+                    ForeColor = System.Drawing.Color.White,
+                    Location = new System.Drawing.Point(startX, startY),
+                    Name = player.Id.ToString(),
+                    Size = new System.Drawing.Size(200, 25),
+                    Text = $"#{player.Number} {player.FirstName} {player.LastName} / {player.Team.Title} / - {player.Points}"
+                };
+
+                StatisticOfGamePanel.Controls.Add(label);
+                startY += 25;
             }
         }
 
@@ -183,7 +217,7 @@ namespace Bakalaurs
 
         public void ShowGameStatistic(object sender, EventArgs e)
         {
-            SetScrollPanelHeight(buttonShowStatistics.Height, buttonShowStatistics.Top, "Izvadīt spēles statistiku");
+            SetScrollPanelHeight(buttonShowStatistics.Height, buttonShowStatistics.Top, "Spēles statistika");
             SetActivePanel(PanelType.StatisticOfGame);
         }
 
@@ -192,6 +226,48 @@ namespace Bakalaurs
             SetScrollPanelHeight(buttonNewGame.Height, buttonNewGame.Top, "Sakt jaunu spēli");
             SetActivePanel(PanelType.StartGame);
             SetRadioButtonsForManage();
+        }
+
+        public void AddOnePointToActivePlayer(object sender, EventArgs e)
+        {
+            var currentPlayer = players.FirstOrDefault(f => f.Id == activePlayer.Id);
+
+            if (currentPlayer != null)
+            {
+                currentPlayer.Points++;
+            }
+        }        
+
+        private void addTwoPtButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addThreePtButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rebButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void missedButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void astButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void SaveData(object sender, EventArgs e)
+        {
+            SetScrollPanelHeight(buttonShowStatistics.Height, buttonShowStatistics.Top, "Izvadīt spēles statistiku");
+            SetActivePanel(PanelType.StatisticOfGame);
+            SetPlayersStatistic();
         }
     }
 }
