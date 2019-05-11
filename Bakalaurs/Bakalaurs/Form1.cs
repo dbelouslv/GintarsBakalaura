@@ -18,19 +18,33 @@ namespace Bakalaurs
         public Form1(IMainManager mainManager)
         {
             InitializeComponent();
+
             SetScrollPanelHeight(buttonHome.Height, buttonHome.Top, "Galvenā");
+            SetActivePanel(PanelType.Home);
 
             _mainManager = mainManager;
         }
 
-        private void buttonNewGame_Click(object sender, EventArgs e)
+        private void SetActivePanel(PanelType panel)
         {
-            SetScrollPanelHeight(buttonNewGame.Height, buttonNewGame.Top, "Izveidot jaunu spēli");
-        }
-
-        private void buttonShowStatistics_Click(object sender, EventArgs e)
-        {
-            SetScrollPanelHeight(buttonShowStatistics.Height, buttonShowStatistics.Top, "Izvadīt spēles statistiku");
+            switch (panel)
+            {
+                case PanelType.CreateGame:
+                    Controls.Add(NewGamePanel);
+                    Controls.Remove(HomePanel);
+                    Controls.Remove(StatisticOfGamePanel);
+                    break;
+                case PanelType.StatisticOfGame:
+                    Controls.Add(StatisticOfGamePanel);
+                    Controls.Remove(HomePanel);
+                    Controls.Remove(NewGamePanel);
+                    break;
+                default:
+                    Controls.Add(HomePanel);
+                    Controls.Remove(NewGamePanel);
+                    Controls.Remove(StatisticOfGamePanel);
+                    break;
+            }
         }
 
         private void buttonPrint_Click(object sender, EventArgs e)
@@ -104,7 +118,19 @@ namespace Bakalaurs
         public void GoToHome(object sender, EventArgs e)
         {
             SetScrollPanelHeight(buttonHome.Height, buttonHome.Top, "Galvenā");
-            _mainManager.SetActivePanel(ref HomePanel);
+            SetActivePanel(PanelType.Home);
+        }
+
+        public void GoToNewGame(object sender, EventArgs e)
+        {
+            SetScrollPanelHeight(buttonNewGame.Height, buttonNewGame.Top, "Izveidot jaunu spēli");
+            SetActivePanel(PanelType.CreateGame);
+        }
+
+        public void ShowGameStatistic(object sender, EventArgs e)
+        {
+            SetScrollPanelHeight(buttonShowStatistics.Height, buttonShowStatistics.Top, "Izvadīt spēles statistiku");
+            SetActivePanel(PanelType.StatisticOfGame);
         }
     }
 }

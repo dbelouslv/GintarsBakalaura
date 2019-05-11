@@ -21,4 +21,12 @@ namespace Bakalaurs.BusinessLogic.MainModel
         public int Id { get; set; }
         public string Title { get; set; }
     }
+
+    public enum PanelType
+    {
+        Home = 1,
+        CreateGame = 2,
+        StartGame = 3,
+        StatisticOfGame = 4
+    }
 }

@@ -10,7 +10,6 @@ namespace Bakalaurs.BusinessLogic.MainManager
         void SetError(string errorMessage, ref Label label);
         void ResetPlayerFields(ref TextBox firstTextBox, ref TextBox secondTextBox, ref TextBox numberTextBox, ref Label label);
         void AppendRichTextBox(ref RichTextBox richTextBox1, string message);
-        void SetActivePanel(ref Panel activepanel);
     }
 
     public class MainManager : IMainManager
@@ -51,11 +50,6 @@ namespace Bakalaurs.BusinessLogic.MainManager
         public void AppendRichTextBox(ref RichTextBox richTextBox, string message)
         {
             richTextBox.AppendText(message);
-        }
-
-        public void SetActivePanel(ref Panel activepanel)
-        {
-
         }
     }
 }

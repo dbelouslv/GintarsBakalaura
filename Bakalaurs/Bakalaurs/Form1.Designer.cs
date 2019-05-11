@@ -38,7 +38,7 @@
             this.panelScroll = new System.Windows.Forms.Panel();
             this.buttonExit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panelNewGame = new System.Windows.Forms.Panel();
+            this.NewGamePanel = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.secondNumber = new System.Windows.Forms.TextBox();
             this.firstNumber = new System.Windows.Forms.TextBox();
@@ -65,9 +65,10 @@
             this.ErrorLabel = new System.Windows.Forms.Label();
             this.HomePanel = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
+            this.StatisticOfGamePanel = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panelNewGame.SuspendLayout();
+            this.NewGamePanel.SuspendLayout();
             this.panel2.SuspendLayout();
             this.HomePanel.SuspendLayout();
             this.SuspendLayout();
@@ -122,7 +123,7 @@
             this.buttonNewGame.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.buttonNewGame.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonNewGame.UseVisualStyleBackColor = true;
-            this.buttonNewGame.Click += new System.EventHandler(this.buttonNewGame_Click);
+            this.buttonNewGame.Click += new System.EventHandler(this.GoToNewGame);
             // 
             // buttonShowStatistics
             // 
@@ -138,7 +139,7 @@
             this.buttonShowStatistics.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.buttonShowStatistics.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonShowStatistics.UseVisualStyleBackColor = true;
-            this.buttonShowStatistics.Click += new System.EventHandler(this.buttonShowStatistics_Click);
+            this.buttonShowStatistics.Click += new System.EventHandler(this.ShowGameStatistic);
             // 
             // buttonPrint
             // 
@@ -195,11 +196,11 @@
             // 
             // panelNewGame
             // 
-            this.panelNewGame.Controls.Add(this.panel2);
-            this.panelNewGame.Location = new System.Drawing.Point(172, 47);
-            this.panelNewGame.Name = "panelNewGame";
-            this.panelNewGame.Size = new System.Drawing.Size(0, 516);
-            this.panelNewGame.TabIndex = 7;
+            this.NewGamePanel.Controls.Add(this.panel2);
+            this.NewGamePanel.Location = new System.Drawing.Point(178, 45);
+            this.NewGamePanel.Name = "NewGamePanel";
+            this.NewGamePanel.Size = new System.Drawing.Size(810, 518);
+            this.NewGamePanel.TabIndex = 7;
             // 
             // panel2
             // 
@@ -474,9 +475,9 @@
             // HomePanel
             // 
             this.HomePanel.Controls.Add(this.label8);
-            this.HomePanel.Location = new System.Drawing.Point(186, 48);
+            this.HomePanel.Location = new System.Drawing.Point(178, 45);
             this.HomePanel.Name = "HomePanel";
-            this.HomePanel.Size = new System.Drawing.Size(801, 514);
+            this.HomePanel.Size = new System.Drawing.Size(810, 518);
             this.HomePanel.TabIndex = 10;
             // 
             // label8
@@ -490,17 +491,25 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "SVEIKS";
             // 
+            // panel5
+            // 
+            this.StatisticOfGamePanel.Location = new System.Drawing.Point(178, 45);
+            this.StatisticOfGamePanel.Name = "StatisticOfGamePanel";
+            this.StatisticOfGamePanel.Size = new System.Drawing.Size(810, 518);
+            this.StatisticOfGamePanel.TabIndex = 11;
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(1000, 575);
-            this.Controls.Add(this.HomePanel);
+            this.Controls.Add(this.StatisticOfGamePanel);
             this.Controls.Add(this.ErrorLabel);
             this.Controls.Add(this.header);
-            this.Controls.Add(this.panelNewGame);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.HomePanel);
+            this.Controls.Add(this.NewGamePanel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -509,7 +518,7 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.panelNewGame.ResumeLayout(false);
+            this.NewGamePanel.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.HomePanel.ResumeLayout(false);
@@ -530,7 +539,7 @@
         private System.Windows.Forms.Panel panelScroll;
         private System.Windows.Forms.Button buttonExit;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panelNewGame;
+        private System.Windows.Forms.Panel NewGamePanel;
         private System.Windows.Forms.Label header;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label4;
@@ -557,6 +566,7 @@
         private System.Windows.Forms.TextBox firstNumber;
         private System.Windows.Forms.Panel HomePanel;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel StatisticOfGamePanel;
     }
 }
 
