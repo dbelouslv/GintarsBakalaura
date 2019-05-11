@@ -96,18 +96,6 @@ namespace Bakalaurs
 
         private void SetPlayersStatistic()
         {
-            var titles = new Label
-            {
-                AutoSize = true,
-                Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204))),
-                ForeColor = System.Drawing.Color.White,
-                Location = new System.Drawing.Point(300, 0),
-                Name = "Title",
-                Size = new System.Drawing.Size(200, 25),
-                Text = $"Numurs  Vārds  Uzvārds  Komanda  Punkti"
-            };
-            StatisticOfGamePanel.Controls.Add(titles);
-
             int startX = 300, startY = 50;
             foreach (var player in players)
             {
@@ -119,7 +107,7 @@ namespace Bakalaurs
                     Location = new System.Drawing.Point(startX, startY),
                     Name = player.Id.ToString(),
                     Size = new System.Drawing.Size(200, 25),
-                    Text = $"#{player.Number} {player.FirstName} {player.LastName} / {player.Team.Title} / - {player.Points}"
+                    Text = $"#{player.Number} {player.FirstName} {player.LastName} / {player.Team.Title} / - {player.Points}   ({player.REB} - {player.Missed} - {player.AST})"
                 };
 
                 StatisticOfGamePanel.Controls.Add(label);
@@ -238,29 +226,54 @@ namespace Bakalaurs
             }
         }        
 
-        private void addTwoPtButton_Click(object sender, EventArgs e)
+        private void AddTwoPointToActivePlayer(object sender, EventArgs e)
         {
+            var currentPlayer = players.FirstOrDefault(f => f.Id == activePlayer.Id);
 
+            if (currentPlayer != null)
+            {
+                currentPlayer.Points += 2;
+            }
         }
 
-        private void addThreePtButton_Click(object sender, EventArgs e)
+        private void AddThreePointToActivePlayer(object sender, EventArgs e)
         {
+            var currentPlayer = players.FirstOrDefault(f => f.Id == activePlayer.Id);
 
+            if (currentPlayer != null)
+            {
+                currentPlayer.Points += 3;
+            }
         }
 
-        private void rebButton_Click(object sender, EventArgs e)
+        private void AddRebToActivePlayer(object sender, EventArgs e)
         {
+            var currentPlayer = players.FirstOrDefault(f => f.Id == activePlayer.Id);
 
+            if (currentPlayer != null)
+            {
+                currentPlayer.REB++;
+            }
         }
 
-        private void missedButton_Click(object sender, EventArgs e)
+        private void AddMissedToActivePlayer(object sender, EventArgs e)
         {
+            var currentPlayer = players.FirstOrDefault(f => f.Id == activePlayer.Id);
 
+            if (currentPlayer != null)
+            {
+                currentPlayer.Missed++;
+            }
         }
 
-        private void astButton_Click(object sender, EventArgs e)
+        private void AddAstToActivePlayer(object sender, EventArgs e)
         {
+            var currentPlayer = players.FirstOrDefault(f => f.Id == activePlayer.Id);
 
+            if (currentPlayer != null)
+            {
+                currentPlayer.AST++;
+            }
         }
 
         public void SaveData(object sender, EventArgs e)

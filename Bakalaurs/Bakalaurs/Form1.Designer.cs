@@ -580,7 +580,7 @@
             this.astButton.TabIndex = 5;
             this.astButton.Text = "AST";
             this.astButton.UseVisualStyleBackColor = false;
-            this.astButton.Click += new System.EventHandler(this.astButton_Click);
+            this.astButton.Click += new System.EventHandler(this.AddAstToActivePlayer);
             // 
             // missedButton
             // 
@@ -594,7 +594,7 @@
             this.missedButton.TabIndex = 4;
             this.missedButton.Text = "MSD";
             this.missedButton.UseVisualStyleBackColor = false;
-            this.missedButton.Click += new System.EventHandler(this.missedButton_Click);
+            this.missedButton.Click += new System.EventHandler(this.AddMissedToActivePlayer);
             // 
             // rebButton
             // 
@@ -608,7 +608,7 @@
             this.rebButton.TabIndex = 3;
             this.rebButton.Text = "REB";
             this.rebButton.UseVisualStyleBackColor = false;
-            this.rebButton.Click += new System.EventHandler(this.rebButton_Click);
+            this.rebButton.Click += new System.EventHandler(this.AddRebToActivePlayer);
             // 
             // addThreePtButton
             // 
@@ -622,7 +622,7 @@
             this.addThreePtButton.TabIndex = 2;
             this.addThreePtButton.Text = "3PT";
             this.addThreePtButton.UseVisualStyleBackColor = false;
-            this.addThreePtButton.Click += new System.EventHandler(this.addThreePtButton_Click);
+            this.addThreePtButton.Click += new System.EventHandler(this.AddThreePointToActivePlayer);
             // 
             // addTwoPtButton
             // 
@@ -636,7 +636,7 @@
             this.addTwoPtButton.TabIndex = 1;
             this.addTwoPtButton.Text = "2PT";
             this.addTwoPtButton.UseVisualStyleBackColor = false;
-            this.addTwoPtButton.Click += new System.EventHandler(this.addTwoPtButton_Click);
+            this.addTwoPtButton.Click += new System.EventHandler(this.AddTwoPointToActivePlayer);
             // 
             // addOnePtButton
             // 
