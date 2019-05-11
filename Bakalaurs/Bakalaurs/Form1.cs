@@ -119,6 +119,9 @@ namespace Bakalaurs
             var rosterOfFirstTeam = players.Where(w => w.Team.Id == FirstTeam.Id).OrderByDescending(o => o.Points).ToList();
             var rosterOfSecondTeam = players.Where(w => w.Team.Id == SecondTeam.Id).OrderByDescending(o => o.Points).ToList();
 
+            StatisticTeamOne.Text = FirstTeam.Title;
+            StatisticTeamTwo.Text = SecondTeam.Title;
+
             int startY = 75;
             foreach (var player in rosterOfFirstTeam)
             {
