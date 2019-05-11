@@ -66,6 +66,10 @@
             this.HomePanel = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.StatisticOfGamePanel = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.StatisticTeamTwo = new System.Windows.Forms.Label();
+            this.StatisticTeamOne = new System.Windows.Forms.Label();
             this.ManageGame = new System.Windows.Forms.Panel();
             this.teamTwoNameLabel = new System.Windows.Forms.Label();
             this.teamOneNameLabel = new System.Windows.Forms.Label();
@@ -80,6 +84,7 @@
             this.panel1.SuspendLayout();
             this.CreateGame.SuspendLayout();
             this.HomePanel.SuspendLayout();
+            this.StatisticOfGamePanel.SuspendLayout();
             this.ManageGame.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -511,10 +516,54 @@
             // 
             // StatisticOfGamePanel
             // 
+            this.StatisticOfGamePanel.Controls.Add(this.label10);
+            this.StatisticOfGamePanel.Controls.Add(this.label9);
+            this.StatisticOfGamePanel.Controls.Add(this.StatisticTeamTwo);
+            this.StatisticOfGamePanel.Controls.Add(this.StatisticTeamOne);
             this.StatisticOfGamePanel.Location = new System.Drawing.Point(178, 45);
             this.StatisticOfGamePanel.Name = "StatisticOfGamePanel";
             this.StatisticOfGamePanel.Size = new System.Drawing.Size(810, 518);
             this.StatisticOfGamePanel.TabIndex = 11;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.label10.Location = new System.Drawing.Point(247, 20);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(295, 17);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "#   Vārds   Uzvārds    Punkti  (MSD AST REB)";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.label9.Location = new System.Drawing.Point(247, 258);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(291, 17);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "#  Vārds   Uzvārds    Punkti  (MSD AST REB)";
+            // 
+            // StatisticTeamTwo
+            // 
+            this.StatisticTeamTwo.AutoSize = true;
+            this.StatisticTeamTwo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.StatisticTeamTwo.Location = new System.Drawing.Point(13, 258);
+            this.StatisticTeamTwo.Name = "StatisticTeamTwo";
+            this.StatisticTeamTwo.Size = new System.Drawing.Size(0, 24);
+            this.StatisticTeamTwo.TabIndex = 1;
+            // 
+            // StatisticTeamOne
+            // 
+            this.StatisticTeamOne.AutoSize = true;
+            this.StatisticTeamOne.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.StatisticTeamOne.Location = new System.Drawing.Point(13, 95);
+            this.StatisticTeamOne.Name = "StatisticTeamOne";
+            this.StatisticTeamOne.Size = new System.Drawing.Size(0, 24);
+            this.StatisticTeamOne.TabIndex = 0;
             // 
             // ManageGame
             // 
@@ -678,6 +727,8 @@
             this.CreateGame.PerformLayout();
             this.HomePanel.ResumeLayout(false);
             this.HomePanel.PerformLayout();
+            this.StatisticOfGamePanel.ResumeLayout(false);
+            this.StatisticOfGamePanel.PerformLayout();
             this.ManageGame.ResumeLayout(false);
             this.ManageGame.PerformLayout();
             this.ResumeLayout(false);
@@ -734,6 +785,10 @@
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Label teamOneNameLabel;
         private System.Windows.Forms.Label teamTwoNameLabel;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label StatisticTeamTwo;
+        private System.Windows.Forms.Label StatisticTeamOne;
     }
 }
 
