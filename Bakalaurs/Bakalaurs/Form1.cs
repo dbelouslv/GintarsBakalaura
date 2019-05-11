@@ -1,7 +1,10 @@
 ﻿using Bakalaurs.BusinessLogic.MainManager;
 using Bakalaurs.BusinessLogic.MainModel;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -185,6 +188,35 @@ namespace Bakalaurs
         public void Print(object sender, EventArgs e)
         {
             SetScrollPanelHeight(buttonPrint.Height, buttonPrint.Top, "Printēt spēles statistiku");
+
+            var fs = new FileStream("Statistics.pdf", FileMode.Create, FileAccess.Write, FileShare.None);
+            var doc = new Document();
+            var writer = PdfWriter.GetInstance(doc, fs);
+
+            var teamOnePoints = players.Where(w => w.Team.Id == FirstTeam.Id).Sum(s => s.Points);
+            var teamTwoPoints = players.Where(w => w.Team.Id == SecondTeam.Id).Sum(s => s.Points);
+
+            var rosterOfFirstTeam = players.Where(w => w.Team.Id == FirstTeam.Id).OrderByDescending(o => o.Points).ToList();
+            var rosterOfSecondTeam = players.Where(w => w.Team.Id == SecondTeam.Id).OrderByDescending(o => o.Points).ToList();
+
+            doc.Open();
+            doc.Add(new Paragraph($"{FirstTeam.Title} - {teamOnePoints}", new Font { Size = 20 }));
+
+            foreach (var player in rosterOfFirstTeam)
+            {
+                doc.Add(new Paragraph($"#{player.Number} {player.FirstName} {player.LastName} - {player.Points}   ({player.Missed} - {player.AST} - {player.REB})", new Font { Size = 14 }));
+            }
+
+            doc.Add(new Paragraph($"{SecondTeam.Title} - {teamTwoPoints}", new Font { Size = 20 }));
+
+            foreach (var player in rosterOfSecondTeam)
+            {
+                doc.Add(new Paragraph($"#{player.Number} {player.FirstName} {player.LastName} - {player.Points}   ({player.Missed} - {player.AST} - {player.REB})", new Font { Size = 14 }));
+            }
+
+            doc.Close();
+            writer.Close();
+            fs.Close();
         }
 
         public void Exit(object sender, EventArgs e)
