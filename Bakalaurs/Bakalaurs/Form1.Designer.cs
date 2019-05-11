@@ -67,10 +67,20 @@
             this.label8 = new System.Windows.Forms.Label();
             this.StatisticOfGamePanel = new System.Windows.Forms.Panel();
             this.ManageGame = new System.Windows.Forms.Panel();
+            this.teamTwoNameLabel = new System.Windows.Forms.Label();
+            this.teamOneNameLabel = new System.Windows.Forms.Label();
+            this.saveButton = new System.Windows.Forms.Button();
+            this.astButton = new System.Windows.Forms.Button();
+            this.missedButton = new System.Windows.Forms.Button();
+            this.rebButton = new System.Windows.Forms.Button();
+            this.addThreePtButton = new System.Windows.Forms.Button();
+            this.addTwoPtButton = new System.Windows.Forms.Button();
+            this.addOnePtButton = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.CreateGame.SuspendLayout();
             this.HomePanel.SuspendLayout();
+            this.ManageGame.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -508,10 +518,132 @@
             // 
             // ManageGame
             // 
+            this.ManageGame.Controls.Add(this.teamTwoNameLabel);
+            this.ManageGame.Controls.Add(this.teamOneNameLabel);
+            this.ManageGame.Controls.Add(this.saveButton);
+            this.ManageGame.Controls.Add(this.astButton);
+            this.ManageGame.Controls.Add(this.missedButton);
+            this.ManageGame.Controls.Add(this.rebButton);
+            this.ManageGame.Controls.Add(this.addThreePtButton);
+            this.ManageGame.Controls.Add(this.addTwoPtButton);
+            this.ManageGame.Controls.Add(this.addOnePtButton);
             this.ManageGame.Location = new System.Drawing.Point(178, 45);
             this.ManageGame.Name = "ManageGame";
-            this.ManageGame.Size = new System.Drawing.Size(0, 518);
+            this.ManageGame.Size = new System.Drawing.Size(810, 518);
             this.ManageGame.TabIndex = 12;
+            // 
+            // teamTwoNameLabel
+            // 
+            this.teamTwoNameLabel.AutoSize = true;
+            this.teamTwoNameLabel.ForeColor = System.Drawing.Color.Yellow;
+            this.teamTwoNameLabel.Location = new System.Drawing.Point(473, 20);
+            this.teamTwoNameLabel.MinimumSize = new System.Drawing.Size(250, 0);
+            this.teamTwoNameLabel.Name = "teamTwoNameLabel";
+            this.teamTwoNameLabel.Size = new System.Drawing.Size(250, 24);
+            this.teamTwoNameLabel.TabIndex = 8;
+            this.teamTwoNameLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // teamOneNameLabel
+            // 
+            this.teamOneNameLabel.AutoSize = true;
+            this.teamOneNameLabel.ForeColor = System.Drawing.Color.Yellow;
+            this.teamOneNameLabel.Location = new System.Drawing.Point(53, 17);
+            this.teamOneNameLabel.MinimumSize = new System.Drawing.Size(250, 0);
+            this.teamOneNameLabel.Name = "teamOneNameLabel";
+            this.teamOneNameLabel.Size = new System.Drawing.Size(250, 24);
+            this.teamOneNameLabel.TabIndex = 7;
+            this.teamOneNameLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // saveButton
+            // 
+            this.saveButton.BackColor = System.Drawing.Color.Transparent;
+            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.saveButton.ForeColor = System.Drawing.Color.Red;
+            this.saveButton.Location = new System.Drawing.Point(376, 472);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(66, 33);
+            this.saveButton.TabIndex = 6;
+            this.saveButton.Text = "SAVE";
+            this.saveButton.UseVisualStyleBackColor = false;
+            // 
+            // astButton
+            // 
+            this.astButton.BackColor = System.Drawing.Color.Transparent;
+            this.astButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.astButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.astButton.ForeColor = System.Drawing.Color.Yellow;
+            this.astButton.Location = new System.Drawing.Point(729, 472);
+            this.astButton.Name = "astButton";
+            this.astButton.Size = new System.Drawing.Size(66, 33);
+            this.astButton.TabIndex = 5;
+            this.astButton.Text = "AST";
+            this.astButton.UseVisualStyleBackColor = false;
+            // 
+            // missedButton
+            // 
+            this.missedButton.BackColor = System.Drawing.Color.Transparent;
+            this.missedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.missedButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.missedButton.ForeColor = System.Drawing.Color.Yellow;
+            this.missedButton.Location = new System.Drawing.Point(644, 472);
+            this.missedButton.Name = "missedButton";
+            this.missedButton.Size = new System.Drawing.Size(66, 33);
+            this.missedButton.TabIndex = 4;
+            this.missedButton.Text = "MSD";
+            this.missedButton.UseVisualStyleBackColor = false;
+            // 
+            // rebButton
+            // 
+            this.rebButton.BackColor = System.Drawing.Color.Transparent;
+            this.rebButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rebButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.rebButton.ForeColor = System.Drawing.Color.Yellow;
+            this.rebButton.Location = new System.Drawing.Point(553, 472);
+            this.rebButton.Name = "rebButton";
+            this.rebButton.Size = new System.Drawing.Size(66, 33);
+            this.rebButton.TabIndex = 3;
+            this.rebButton.Text = "REB";
+            this.rebButton.UseVisualStyleBackColor = false;
+            // 
+            // addThreePtButton
+            // 
+            this.addThreePtButton.BackColor = System.Drawing.Color.Transparent;
+            this.addThreePtButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addThreePtButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addThreePtButton.ForeColor = System.Drawing.Color.Green;
+            this.addThreePtButton.Location = new System.Drawing.Point(196, 472);
+            this.addThreePtButton.Name = "addThreePtButton";
+            this.addThreePtButton.Size = new System.Drawing.Size(66, 33);
+            this.addThreePtButton.TabIndex = 2;
+            this.addThreePtButton.Text = "3PT";
+            this.addThreePtButton.UseVisualStyleBackColor = false;
+            // 
+            // addTwoPtButton
+            // 
+            this.addTwoPtButton.BackColor = System.Drawing.Color.Transparent;
+            this.addTwoPtButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addTwoPtButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addTwoPtButton.ForeColor = System.Drawing.Color.Green;
+            this.addTwoPtButton.Location = new System.Drawing.Point(109, 472);
+            this.addTwoPtButton.Name = "addTwoPtButton";
+            this.addTwoPtButton.Size = new System.Drawing.Size(66, 33);
+            this.addTwoPtButton.TabIndex = 1;
+            this.addTwoPtButton.Text = "2PT";
+            this.addTwoPtButton.UseVisualStyleBackColor = false;
+            // 
+            // addOnePtButton
+            // 
+            this.addOnePtButton.BackColor = System.Drawing.Color.Transparent;
+            this.addOnePtButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addOnePtButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addOnePtButton.ForeColor = System.Drawing.Color.Green;
+            this.addOnePtButton.Location = new System.Drawing.Point(22, 472);
+            this.addOnePtButton.Name = "addOnePtButton";
+            this.addOnePtButton.Size = new System.Drawing.Size(66, 33);
+            this.addOnePtButton.TabIndex = 0;
+            this.addOnePtButton.Text = "1PT";
+            this.addOnePtButton.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
@@ -538,6 +670,8 @@
             this.CreateGame.PerformLayout();
             this.HomePanel.ResumeLayout(false);
             this.HomePanel.PerformLayout();
+            this.ManageGame.ResumeLayout(false);
+            this.ManageGame.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -583,6 +717,15 @@
         private System.Windows.Forms.Panel StatisticOfGamePanel;
         private System.Windows.Forms.Button ToStartGame;
         private System.Windows.Forms.Panel ManageGame;
+        private System.Windows.Forms.Button astButton;
+        private System.Windows.Forms.Button missedButton;
+        private System.Windows.Forms.Button rebButton;
+        private System.Windows.Forms.Button addThreePtButton;
+        private System.Windows.Forms.Button addTwoPtButton;
+        private System.Windows.Forms.Button addOnePtButton;
+        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Label teamOneNameLabel;
+        private System.Windows.Forms.Label teamTwoNameLabel;
     }
 }
 

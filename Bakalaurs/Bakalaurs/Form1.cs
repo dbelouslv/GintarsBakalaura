@@ -12,6 +12,7 @@ namespace Bakalaurs
         public List<Player> players = new List<Player>();
         public Team FirstTeam = new Team();
         public Team SecondTeam = new Team();
+        public Player activePlayer = new Player();
 
         private readonly IMainManager _mainManager;
 
@@ -63,6 +64,48 @@ namespace Bakalaurs
             header.Text = headerName;
             ErrorLabel.Text = string.Empty;
         }
+
+        private void SetRadioButtonsForManage()
+        {
+            var rosterOfFirstTeam = players.Where(w => w.Team.Id == FirstTeam.Id).ToList();
+            var rosterOfSecondTeam = players.Where(w => w.Team.Id == SecondTeam.Id).ToList();
+
+            teamOneNameLabel.Text = FirstTeam.Title;
+            teamTwoNameLabel.Text = SecondTeam.Title;
+
+            int startX = 20, startY = 70;
+            foreach (var player in rosterOfFirstTeam)
+            {
+                var radioButton = new RadioButton
+                {
+                    AutoSize = true,
+                    Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204))),
+                    ForeColor = System.Drawing.Color.White,
+                    Location = new System.Drawing.Point(startX, startY),
+                    Name = player.Id.ToString(),
+                    Size = new System.Drawing.Size(150, 20),
+                    Text = $"#{player.Number} {player.FirstName} {player.LastName}",
+                    UseVisualStyleBackColor = true
+                };
+
+                radioButton.CheckedChanged += new EventHandler(SetActivePlayer);
+                startY += 20;
+            }
+        }
+
+        private void SetActivePlayer(object sender, EventArgs e)
+        {
+            RadioButton radio = (RadioButton)sender;
+
+            if (int.TryParse(radio.Name, out int playerId))
+            {
+                var player = players.FirstOrDefault(f => f.Id == playerId);
+                if (player != null)
+                {
+                    activePlayer = player;
+                }
+            }
+        }           
 
         public void Print(object sender, EventArgs e)
         {
@@ -144,10 +187,11 @@ namespace Bakalaurs
             SetActivePanel(PanelType.StatisticOfGame);
         }
 
-        private void GoToManage(object sender, EventArgs e)
+        public void GoToManage(object sender, EventArgs e)
         {
             SetScrollPanelHeight(buttonNewGame.Height, buttonNewGame.Top, "Sakt jaunu spēli");
             SetActivePanel(PanelType.StartGame);
+            SetRadioButtonsForManage();
         }
     }
 }
