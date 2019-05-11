@@ -29,20 +29,29 @@ namespace Bakalaurs
         {
             switch (panel)
             {
-                case PanelType.CreateGame:
-                    Controls.Add(NewGamePanel);
+                case PanelType.CreateGame:                                     
+                    Controls.Add(CreateGame);
+                    Controls.Remove(HomePanel);
+                    Controls.Remove(ManageGame);
+                    Controls.Remove(StatisticOfGamePanel);
+                    break;
+                case PanelType.StartGame:
+                    Controls.Add(ManageGame);
                     Controls.Remove(HomePanel);
                     Controls.Remove(StatisticOfGamePanel);
+                    Controls.Remove(CreateGame);
                     break;
                 case PanelType.StatisticOfGame:
                     Controls.Add(StatisticOfGamePanel);
                     Controls.Remove(HomePanel);
-                    Controls.Remove(NewGamePanel);
+                    Controls.Remove(CreateGame);
+                    Controls.Remove(ManageGame);
                     break;
                 default:
                     Controls.Add(HomePanel);
-                    Controls.Remove(NewGamePanel);
                     Controls.Remove(StatisticOfGamePanel);
+                    Controls.Remove(CreateGame);
+                    Controls.Remove(ManageGame);
                     break;
             }
         }
@@ -131,6 +140,12 @@ namespace Bakalaurs
         {
             SetScrollPanelHeight(buttonShowStatistics.Height, buttonShowStatistics.Top, "Izvadīt spēles statistiku");
             SetActivePanel(PanelType.StatisticOfGame);
+        }
+
+        private void GoToManage(object sender, EventArgs e)
+        {
+            SetScrollPanelHeight(buttonNewGame.Height, buttonNewGame.Top, "Sakt jaunu spēli");
+            SetActivePanel(PanelType.StartGame);
         }
     }
 }
