@@ -155,7 +155,7 @@
             this.buttonPrint.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.buttonPrint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonPrint.UseVisualStyleBackColor = true;
-            this.buttonPrint.Click += new System.EventHandler(this.buttonPrint_Click);
+            this.buttonPrint.Click += new System.EventHandler(this.Print);
             // 
             // panelScroll
             // 
@@ -178,7 +178,7 @@
             this.buttonExit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.buttonExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonExit.UseVisualStyleBackColor = true;
-            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
+            this.buttonExit.Click += new System.EventHandler(this.Exit);
             // 
             // panel1
             // 
@@ -293,7 +293,7 @@
             this.AddTeamSecondPlayer.Text = "PIEVIENOT";
             this.AddTeamSecondPlayer.UseVisualStyleBackColor = false;
             this.AddTeamSecondPlayer.Visible = false;
-            this.AddTeamSecondPlayer.Click += new System.EventHandler(this.AddTeamSecondPlayer_Click);
+            this.AddTeamSecondPlayer.Click += new System.EventHandler(this.AddForSecondTeamPlayer);
             // 
             // pSecondFirstName
             // 
@@ -335,7 +335,7 @@
             this.AddTeamFirstPlayer.Text = "PIEVIENOT";
             this.AddTeamFirstPlayer.UseVisualStyleBackColor = false;
             this.AddTeamFirstPlayer.Visible = false;
-            this.AddTeamFirstPlayer.Click += new System.EventHandler(this.AddTeamFirstPlayer_Click);
+            this.AddTeamFirstPlayer.Click += new System.EventHandler(this.AddForFirstTeamPlayer);
             // 
             // pOneFirstName
             // 
@@ -368,7 +368,7 @@
             this.SaveSecondTeamName.TabIndex = 17;
             this.SaveSecondTeamName.Text = "OK";
             this.SaveSecondTeamName.UseVisualStyleBackColor = false;
-            this.SaveSecondTeamName.Click += new System.EventHandler(this.SaveSecondTeamName_Click);
+            this.SaveSecondTeamName.Click += new System.EventHandler(this.SaveSecondTeam);
             // 
             // SaveFirstTeamName
             // 
@@ -382,7 +382,7 @@
             this.SaveFirstTeamName.TabIndex = 16;
             this.SaveFirstTeamName.Text = "OK";
             this.SaveFirstTeamName.UseVisualStyleBackColor = false;
-            this.SaveFirstTeamName.Click += new System.EventHandler(this.SaveFirstTeamName_Click);
+            this.SaveFirstTeamName.Click += new System.EventHandler(this.SaveFirstTeam);
             // 
             // panel4
             // 

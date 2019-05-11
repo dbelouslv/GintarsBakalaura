@@ -56,20 +56,6 @@ namespace Bakalaurs
             }
         }
 
-        private void buttonPrint_Click(object sender, EventArgs e)
-        {
-            SetScrollPanelHeight(buttonPrint.Height, buttonPrint.Top, "Printēt spēles statistiku");
-        }
-
-        private void buttonExit_Click(object sender, EventArgs e)
-        {
-            DialogResult dialog = new DialogResult();
-            dialog = MessageBox.Show("Vai vēlaties iziet? ", "Alert!", MessageBoxButtons.YesNo);
-
-            if (dialog == DialogResult.Yes)
-                Environment.Exit(1);
-        }
-
         private void SetScrollPanelHeight(int height, int top, string headerName)
         {
             panelScroll.Height = height;
@@ -78,25 +64,37 @@ namespace Bakalaurs
             ErrorLabel.Text = string.Empty;
         }
 
-        private void SaveFirstTeamName_Click(object sender, EventArgs e)
+        public void Print(object sender, EventArgs e)
         {
-            FirstTeam.Id = 1;
-            FirstTeam.Title = textBox1.Text;
-            textBox1.Enabled = SaveFirstTeamName.Visible = false;
-            label6.Visible = pOneFirstName.Visible = pOneLastName.Visible = 
-                AddTeamFirstPlayer.Visible = richTextBox1.Visible = firstNumber.Visible = true;
+            SetScrollPanelHeight(buttonPrint.Height, buttonPrint.Top, "Printēt spēles statistiku");
         }
 
-        private void SaveSecondTeamName_Click(object sender, EventArgs e)
+        public void Exit(object sender, EventArgs e)
         {
-            SecondTeam.Id = 2;
-            SecondTeam.Title = textBox2.Text;
-            textBox2.Enabled = SaveSecondTeamName.Visible = false;
-            label7.Visible = pSecondFirstName.Visible = pSecondLastName.Visible 
-                = AddTeamSecondPlayer.Visible = richTextBox2.Visible = secondNumber.Visible = true;
+            DialogResult dialog = new DialogResult();
+            dialog = MessageBox.Show("Vai vēlaties iziet? ", "Alert!", MessageBoxButtons.YesNo);
+
+            if (dialog == DialogResult.Yes)
+                Environment.Exit(1);
         }
 
-        private void AddTeamFirstPlayer_Click(object sender, EventArgs e)
+        public void SaveFirstTeam(object sender, EventArgs e)
+        {
+            _mainManager.CreaTeam(ref FirstTeam, 1, ref textBox1, ref SaveFirstTeamName);
+
+            _mainManager.SetVisability(ref label6, ref pOneFirstName,
+                ref pOneLastName, ref AddTeamFirstPlayer, ref richTextBox1, ref firstNumber);
+        }
+
+        public void SaveSecondTeam(object sender, EventArgs e)
+        {
+            _mainManager.CreaTeam(ref SecondTeam, 2, ref textBox2, ref SaveSecondTeamName);
+
+            _mainManager.SetVisability(ref label7, ref pSecondFirstName,
+                ref pSecondLastName, ref AddTeamSecondPlayer, ref richTextBox2, ref secondNumber);
+        }
+
+        public void AddForFirstTeamPlayer(object sender, EventArgs e)
         {
             if (_mainManager.IfFieldsAreFilled(pOneFirstName.Text, pOneLastName.Text, firstNumber.Text, out int number))
             {
@@ -112,7 +110,7 @@ namespace Bakalaurs
             _mainManager.ShowButtonManage(ref ToStartGame, players);
         }
 
-        private void AddTeamSecondPlayer_Click(object sender, EventArgs e)
+        public void AddForSecondTeamPlayer(object sender, EventArgs e)
         {
             if (_mainManager.IfFieldsAreFilled(pSecondFirstName.Text, pSecondLastName.Text, secondNumber.Text, out int number))
             {

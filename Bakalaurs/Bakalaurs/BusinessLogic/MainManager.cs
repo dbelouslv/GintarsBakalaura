@@ -13,6 +13,8 @@ namespace Bakalaurs.BusinessLogic.MainManager
         void ResetPlayerFields(ref TextBox firstTextBox, ref TextBox secondTextBox, ref TextBox numberTextBox, ref Label label);
         void AppendRichTextBox(ref RichTextBox richTextBox1, string message);
         void ShowButtonManage(ref Button toStartGame, List<Player> players);
+        void CreaTeam(ref Team team, int id, ref TextBox textBox, ref Button button);
+        void SetVisability(ref Label label, ref TextBox textboxFirstName, ref TextBox textboxLastName, ref Button button, ref RichTextBox richTextBox, ref TextBox numberTextBox);
     }
 
     public class MainManager : IMainManager
@@ -33,7 +35,7 @@ namespace Bakalaurs.BusinessLogic.MainManager
             return new Player
             {
                 FirstName = firstName,
-                Id = id,
+                Id = id + 1,
                 LastName = lastName,
                 Team = team,
                 Number = number
@@ -61,6 +63,19 @@ namespace Bakalaurs.BusinessLogic.MainManager
             {
                 toStartGame.Visible = true;
             }
+        }
+
+        public void CreaTeam(ref Team team, int id, ref TextBox textBox, ref Button button)
+        {
+            team.Id = id;
+            team.Title = textBox.Text;
+
+            textBox.Enabled = button.Visible = false;
+        }
+
+        public void SetVisability(ref Label label, ref TextBox textboxFirstName, ref TextBox textboxLastName, ref Button button, ref RichTextBox richTextBox, ref TextBox numberTextBox)
+        {
+            label.Visible = textboxFirstName.Visible = textboxLastName.Visible = button.Visible = richTextBox.Visible = numberTextBox.Visible = true;
         }
     }
 }
