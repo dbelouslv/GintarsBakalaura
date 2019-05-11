@@ -89,8 +89,8 @@ namespace Bakalaurs
 
         private void SaveSecondTeamName_Click(object sender, EventArgs e)
         {
-            FirstTeam.Id = 2;
-            FirstTeam.Title = textBox2.Text;
+            SecondTeam.Id = 2;
+            SecondTeam.Title = textBox2.Text;
             textBox2.Enabled = SaveSecondTeamName.Visible = false;
             label7.Visible = pSecondFirstName.Visible = pSecondLastName.Visible 
                 = AddTeamSecondPlayer.Visible = richTextBox2.Visible = secondNumber.Visible = true;
@@ -108,6 +108,8 @@ namespace Bakalaurs
             }
             else
                 _mainManager.SetError("Kļūda! Tukšs laukums.", ref ErrorLabel);
+
+            _mainManager.ShowButtonManage(ref ToStartGame, players);
         }
 
         private void AddTeamSecondPlayer_Click(object sender, EventArgs e)
@@ -122,6 +124,8 @@ namespace Bakalaurs
             }
             else
                 _mainManager.SetError("Kļūda! Tukšs laukums.", ref ErrorLabel);
+
+            _mainManager.ShowButtonManage(ref ToStartGame, players);
         }
 
         public void GoToHome(object sender, EventArgs e)

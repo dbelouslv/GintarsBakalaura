@@ -39,7 +39,7 @@
             this.buttonExit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.CreateGame = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ToStartGame = new System.Windows.Forms.Button();
             this.secondNumber = new System.Windows.Forms.TextBox();
             this.firstNumber = new System.Windows.Forms.TextBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
@@ -196,7 +196,7 @@
             // 
             // CreateGame
             // 
-            this.CreateGame.Controls.Add(this.button1);
+            this.CreateGame.Controls.Add(this.ToStartGame);
             this.CreateGame.Controls.Add(this.secondNumber);
             this.CreateGame.Controls.Add(this.firstNumber);
             this.CreateGame.Controls.Add(this.richTextBox2);
@@ -223,19 +223,20 @@
             this.CreateGame.Size = new System.Drawing.Size(810, 518);
             this.CreateGame.TabIndex = 0;
             // 
-            // button1
+            // ToStartGame
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.ForeColor = System.Drawing.Color.Green;
-            this.button1.Location = new System.Drawing.Point(7, 468);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 30);
-            this.button1.TabIndex = 30;
-            this.button1.Text = "TĀLĀK";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.GoToManage);
+            this.ToStartGame.BackColor = System.Drawing.Color.Transparent;
+            this.ToStartGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ToStartGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ToStartGame.ForeColor = System.Drawing.Color.Green;
+            this.ToStartGame.Location = new System.Drawing.Point(7, 468);
+            this.ToStartGame.Name = "ToStartGame";
+            this.ToStartGame.Size = new System.Drawing.Size(90, 30);
+            this.ToStartGame.TabIndex = 30;
+            this.ToStartGame.Text = "TĀLĀK";
+            this.ToStartGame.UseVisualStyleBackColor = false;
+            this.ToStartGame.Visible = false;
+            this.ToStartGame.Click += new System.EventHandler(this.GoToManage);
             // 
             // secondNumber
             // 
@@ -580,7 +581,7 @@
         private System.Windows.Forms.Panel HomePanel;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel StatisticOfGamePanel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ToStartGame;
         private System.Windows.Forms.Panel ManageGame;
     }
 }

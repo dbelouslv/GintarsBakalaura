@@ -1,4 +1,6 @@
-﻿using System.Windows.Forms;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
 using Bakalaurs.BusinessLogic.MainModel;
 
 namespace Bakalaurs.BusinessLogic.MainManager
@@ -10,6 +12,7 @@ namespace Bakalaurs.BusinessLogic.MainManager
         void SetError(string errorMessage, ref Label label);
         void ResetPlayerFields(ref TextBox firstTextBox, ref TextBox secondTextBox, ref TextBox numberTextBox, ref Label label);
         void AppendRichTextBox(ref RichTextBox richTextBox1, string message);
+        void ShowButtonManage(ref Button toStartGame, List<Player> players);
     }
 
     public class MainManager : IMainManager
@@ -50,6 +53,14 @@ namespace Bakalaurs.BusinessLogic.MainManager
         public void AppendRichTextBox(ref RichTextBox richTextBox, string message)
         {
             richTextBox.AppendText(message);
+        }
+
+        public void ShowButtonManage(ref Button toStartGame, List<Player> players) 
+        {
+            if (players.Any(a => a.Team.Id == 1) && players.Any(a => a.Team.Id == 2))
+            {
+                toStartGame.Visible = true;
+            }
         }
     }
 }
