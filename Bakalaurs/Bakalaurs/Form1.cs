@@ -73,7 +73,7 @@ namespace Bakalaurs
             teamOneNameLabel.Text = FirstTeam.Title;
             teamTwoNameLabel.Text = SecondTeam.Title;
 
-            int startX = 20, startY = 70;
+            int startY = 70;
             foreach (var player in rosterOfFirstTeam)
             {
                 var radioButton = new RadioButton
@@ -81,7 +81,27 @@ namespace Bakalaurs
                     AutoSize = true,
                     Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204))),
                     ForeColor = System.Drawing.Color.White,
-                    Location = new System.Drawing.Point(startX, startY),
+                    Location = new System.Drawing.Point(20, startY),
+                    Name = player.Id.ToString(),
+                    Size = new System.Drawing.Size(150, 20),
+                    Text = $"#{player.Number} {player.FirstName} {player.LastName}",
+                    UseVisualStyleBackColor = true
+                };
+
+                radioButton.CheckedChanged += new EventHandler(SetActivePlayer);
+                ManageGame.Controls.Add(radioButton);
+                startY += 20;
+            }
+
+            startY = 70;
+            foreach (var player in rosterOfSecondTeam)
+            {
+                var radioButton = new RadioButton
+                {
+                    AutoSize = true,
+                    Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204))),
+                    ForeColor = System.Drawing.Color.White,
+                    Location = new System.Drawing.Point(620, startY),
                     Name = player.Id.ToString(),
                     Size = new System.Drawing.Size(150, 20),
                     Text = $"#{player.Number} {player.FirstName} {player.LastName}",
@@ -127,7 +147,16 @@ namespace Bakalaurs
                     activePlayer = player;
                 }
             }
-        }           
+        }
+
+        private void UpdateTeamPoints()
+        {
+            var teamOnePoints = players.Where(w => w.Team.Id == FirstTeam.Id).Sum(s => s.Points);
+            var teamTwoPoints = players.Where(w => w.Team.Id == SecondTeam.Id).Sum(s => s.Points);
+
+            teamOneNameLabel.Text = $"{FirstTeam.Title} - {teamOnePoints}";
+            teamTwoNameLabel.Text = $"{SecondTeam.Title} - {teamTwoPoints}";
+        }
 
         public void Print(object sender, EventArgs e)
         {
@@ -224,9 +253,11 @@ namespace Bakalaurs
             {
                 currentPlayer.Points++;
             }
+
+            UpdateTeamPoints();
         }        
 
-        private void AddTwoPointToActivePlayer(object sender, EventArgs e)
+        public void AddTwoPointToActivePlayer(object sender, EventArgs e)
         {
             var currentPlayer = players.FirstOrDefault(f => f.Id == activePlayer.Id);
 
@@ -234,9 +265,11 @@ namespace Bakalaurs
             {
                 currentPlayer.Points += 2;
             }
+
+            UpdateTeamPoints();
         }
 
-        private void AddThreePointToActivePlayer(object sender, EventArgs e)
+        public void AddThreePointToActivePlayer(object sender, EventArgs e)
         {
             var currentPlayer = players.FirstOrDefault(f => f.Id == activePlayer.Id);
 
@@ -244,9 +277,11 @@ namespace Bakalaurs
             {
                 currentPlayer.Points += 3;
             }
+
+            UpdateTeamPoints();
         }
 
-        private void AddRebToActivePlayer(object sender, EventArgs e)
+        public void AddRebToActivePlayer(object sender, EventArgs e)
         {
             var currentPlayer = players.FirstOrDefault(f => f.Id == activePlayer.Id);
 
@@ -256,7 +291,7 @@ namespace Bakalaurs
             }
         }
 
-        private void AddMissedToActivePlayer(object sender, EventArgs e)
+        public void AddMissedToActivePlayer(object sender, EventArgs e)
         {
             var currentPlayer = players.FirstOrDefault(f => f.Id == activePlayer.Id);
 
@@ -266,7 +301,7 @@ namespace Bakalaurs
             }
         }
 
-        private void AddAstToActivePlayer(object sender, EventArgs e)
+        public void AddAstToActivePlayer(object sender, EventArgs e)
         {
             var currentPlayer = players.FirstOrDefault(f => f.Id == activePlayer.Id);
 

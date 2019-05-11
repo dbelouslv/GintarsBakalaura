@@ -495,7 +495,7 @@
             this.HomePanel.Controls.Add(this.label8);
             this.HomePanel.Location = new System.Drawing.Point(178, 45);
             this.HomePanel.Name = "HomePanel";
-            this.HomePanel.Size = new System.Drawing.Size(0, 518);
+            this.HomePanel.Size = new System.Drawing.Size(810, 518);
             this.HomePanel.TabIndex = 10;
             // 
             // label8
@@ -669,6 +669,7 @@
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
