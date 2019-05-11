@@ -63,10 +63,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.header = new System.Windows.Forms.Label();
             this.ErrorLabel = new System.Windows.Forms.Label();
+            this.HomePanel = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelNewGame.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.HomePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -103,7 +106,7 @@
             this.buttonHome.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.buttonHome.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonHome.UseVisualStyleBackColor = true;
-            this.buttonHome.Click += new System.EventHandler(this.buttonHome_Click);
+            this.buttonHome.Click += new System.EventHandler(this.GoToHome);
             // 
             // buttonNewGame
             // 
@@ -195,7 +198,7 @@
             this.panelNewGame.Controls.Add(this.panel2);
             this.panelNewGame.Location = new System.Drawing.Point(172, 47);
             this.panelNewGame.Name = "panelNewGame";
-            this.panelNewGame.Size = new System.Drawing.Size(828, 528);
+            this.panelNewGame.Size = new System.Drawing.Size(0, 516);
             this.panelNewGame.TabIndex = 7;
             // 
             // panel2
@@ -223,7 +226,7 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(3, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(822, 468);
+            this.panel2.Size = new System.Drawing.Size(772, 468);
             this.panel2.TabIndex = 0;
             // 
             // secondNumber
@@ -468,11 +471,31 @@
             this.ErrorLabel.Size = new System.Drawing.Size(0, 24);
             this.ErrorLabel.TabIndex = 9;
             // 
+            // HomePanel
+            // 
+            this.HomePanel.Controls.Add(this.label8);
+            this.HomePanel.Location = new System.Drawing.Point(186, 48);
+            this.HomePanel.Name = "HomePanel";
+            this.HomePanel.Size = new System.Drawing.Size(801, 514);
+            this.HomePanel.TabIndex = 10;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.label8.Location = new System.Drawing.Point(299, 31);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(164, 46);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "SVEIKS";
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(1000, 575);
+            this.Controls.Add(this.HomePanel);
             this.Controls.Add(this.ErrorLabel);
             this.Controls.Add(this.header);
             this.Controls.Add(this.panelNewGame);
@@ -489,6 +512,8 @@
             this.panelNewGame.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.HomePanel.ResumeLayout(false);
+            this.HomePanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -530,6 +555,8 @@
         private System.Windows.Forms.Label ErrorLabel;
         private System.Windows.Forms.TextBox secondNumber;
         private System.Windows.Forms.TextBox firstNumber;
+        private System.Windows.Forms.Panel HomePanel;
+        private System.Windows.Forms.Label label8;
     }
 }
 

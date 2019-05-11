@@ -23,11 +23,6 @@ namespace Bakalaurs
             _mainManager = mainManager;
         }
 
-        private void buttonHome_Click(object sender, EventArgs e)
-        {
-            SetScrollPanelHeight(buttonHome.Height, buttonHome.Top, "Galvenā");
-        }
-
         private void buttonNewGame_Click(object sender, EventArgs e)
         {
             SetScrollPanelHeight(buttonNewGame.Height, buttonNewGame.Top, "Izveidot jaunu spēli");
@@ -104,6 +99,12 @@ namespace Bakalaurs
             }
             else
                 _mainManager.SetError("Kļūda! Tukšs laukums.", ref ErrorLabel);
-        } 
+        }
+
+        public void GoToHome(object sender, EventArgs e)
+        {
+            SetScrollPanelHeight(buttonHome.Height, buttonHome.Top, "Galvenā");
+            _mainManager.SetActivePanel(ref HomePanel);
+        }
     }
 }
