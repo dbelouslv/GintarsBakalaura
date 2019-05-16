@@ -39,6 +39,8 @@
             this.buttonExit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.CreateGame = new System.Windows.Forms.Panel();
+            this.tesniesi = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.btnSaveTime = new System.Windows.Forms.Button();
             this.timeInput = new System.Windows.Forms.TextBox();
             this.Laiks = new System.Windows.Forms.Label();
@@ -94,14 +96,19 @@
             this.addThreePtButton = new System.Windows.Forms.Button();
             this.addTwoPtButton = new System.Windows.Forms.Button();
             this.addOnePtButton = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.tesniesi = new System.Windows.Forms.TextBox();
+            this.PrintEvent = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.savedPath = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.selectFolder = new System.Windows.Forms.FolderBrowserDialog();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.CreateGame.SuspendLayout();
             this.HomePanel.SuspendLayout();
             this.StatisticOfGamePanel.SuspendLayout();
             this.ManageGame.SuspendLayout();
+            this.PrintEvent.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -186,7 +193,7 @@
             this.buttonPrint.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.buttonPrint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonPrint.UseVisualStyleBackColor = true;
-            this.buttonPrint.Click += new System.EventHandler(this.Print);
+            this.buttonPrint.Click += new System.EventHandler(this.GoToPrint);
             // 
             // panelScroll
             // 
@@ -261,6 +268,24 @@
             this.CreateGame.Name = "CreateGame";
             this.CreateGame.Size = new System.Drawing.Size(810, 518);
             this.CreateGame.TabIndex = 0;
+            // 
+            // tesniesi
+            // 
+            this.tesniesi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tesniesi.Location = new System.Drawing.Point(437, 5);
+            this.tesniesi.Name = "tesniesi";
+            this.tesniesi.Size = new System.Drawing.Size(271, 26);
+            this.tesniesi.TabIndex = 37;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.label11.Location = new System.Drawing.Point(346, 8);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(90, 24);
+            this.label11.TabIndex = 36;
+            this.label11.Text = "Tiesnieši:";
             // 
             // btnSaveTime
             // 
@@ -580,7 +605,7 @@
             // HomePanel
             // 
             this.HomePanel.Controls.Add(this.label8);
-            this.HomePanel.Location = new System.Drawing.Point(178, 45);
+            this.HomePanel.Location = new System.Drawing.Point(184, 62);
             this.HomePanel.Name = "HomePanel";
             this.HomePanel.Size = new System.Drawing.Size(810, 518);
             this.HomePanel.TabIndex = 10;
@@ -602,9 +627,9 @@
             this.StatisticOfGamePanel.Controls.Add(this.label9);
             this.StatisticOfGamePanel.Controls.Add(this.StatisticTeamTwo);
             this.StatisticOfGamePanel.Controls.Add(this.StatisticTeamOne);
-            this.StatisticOfGamePanel.Location = new System.Drawing.Point(178, 45);
+            this.StatisticOfGamePanel.Location = new System.Drawing.Point(184, 62);
             this.StatisticOfGamePanel.Name = "StatisticOfGamePanel";
-            this.StatisticOfGamePanel.Size = new System.Drawing.Size(0, 518);
+            this.StatisticOfGamePanel.Size = new System.Drawing.Size(810, 518);
             this.StatisticOfGamePanel.TabIndex = 11;
             // 
             // label10
@@ -666,7 +691,7 @@
             this.ManageGame.Controls.Add(this.addThreePtButton);
             this.ManageGame.Controls.Add(this.addTwoPtButton);
             this.ManageGame.Controls.Add(this.addOnePtButton);
-            this.ManageGame.Location = new System.Drawing.Point(178, 45);
+            this.ManageGame.Location = new System.Drawing.Point(184, 62);
             this.ManageGame.Name = "ManageGame";
             this.ManageGame.Size = new System.Drawing.Size(810, 518);
             this.ManageGame.TabIndex = 12;
@@ -903,37 +928,74 @@
             this.addOnePtButton.UseVisualStyleBackColor = false;
             this.addOnePtButton.Click += new System.EventHandler(this.AddOnePointToActivePlayer);
             // 
-            // label11
+            // PrintEvent
             // 
-            this.label11.AutoSize = true;
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label11.Location = new System.Drawing.Point(346, 8);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(90, 24);
-            this.label11.TabIndex = 36;
-            this.label11.Text = "Tiesnieši:";
+            this.PrintEvent.Controls.Add(this.button2);
+            this.PrintEvent.Controls.Add(this.savedPath);
+            this.PrintEvent.Controls.Add(this.label12);
+            this.PrintEvent.Controls.Add(this.button1);
+            this.PrintEvent.Controls.Add(this.ManageGame);
+            this.PrintEvent.Controls.Add(this.StatisticOfGamePanel);
+            this.PrintEvent.Controls.Add(this.HomePanel);
+            this.PrintEvent.Location = new System.Drawing.Point(184, 62);
+            this.PrintEvent.Name = "PrintEvent";
+            this.PrintEvent.Size = new System.Drawing.Size(810, 518);
+            this.PrintEvent.TabIndex = 13;
             // 
-            // tesniesi
+            // button2
             // 
-            this.tesniesi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tesniesi.Location = new System.Drawing.Point(437, 5);
-            this.tesniesi.Name = "tesniesi";
-            this.tesniesi.Size = new System.Drawing.Size(271, 26);
-            this.tesniesi.TabIndex = 37;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.Green;
+            this.button2.Location = new System.Drawing.Point(53, 168);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(166, 36);
+            this.button2.TabIndex = 16;
+            this.button2.Text = "Saglabāt";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Print);
+            // 
+            // savedPath
+            // 
+            this.savedPath.AutoSize = true;
+            this.savedPath.ForeColor = System.Drawing.Color.Yellow;
+            this.savedPath.Location = new System.Drawing.Point(28, 112);
+            this.savedPath.Name = "savedPath";
+            this.savedPath.Size = new System.Drawing.Size(0, 24);
+            this.savedPath.TabIndex = 15;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.label12.Location = new System.Drawing.Point(28, 28);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(334, 24);
+            this.label12.TabIndex = 14;
+            this.label12.Text = "1. Izvēlaties mapi, kur saglabāt statistiku";
+            // 
+            // button1
+            // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.Green;
+            this.button1.Location = new System.Drawing.Point(53, 63);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(166, 36);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Izvēlēties";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.OpenFolderDialog);
             // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(1000, 575);
-            this.Controls.Add(this.ManageGame);
+            this.Controls.Add(this.PrintEvent);
             this.Controls.Add(this.CreateGame);
-            this.Controls.Add(this.StatisticOfGamePanel);
             this.Controls.Add(this.ErrorLabel);
             this.Controls.Add(this.header);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.HomePanel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -951,6 +1013,8 @@
             this.StatisticOfGamePanel.PerformLayout();
             this.ManageGame.ResumeLayout(false);
             this.ManageGame.PerformLayout();
+            this.PrintEvent.ResumeLayout(false);
+            this.PrintEvent.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1025,6 +1089,12 @@
         private System.Windows.Forms.Button btnSaveTime;
         private System.Windows.Forms.TextBox tesniesi;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Panel PrintEvent;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.FolderBrowserDialog selectFolder;
+        private System.Windows.Forms.Label savedPath;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button button2;
     }
 }
 

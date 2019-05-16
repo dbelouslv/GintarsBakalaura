@@ -37,6 +37,7 @@ namespace Bakalaurs.BusinessLogic.MainModel
         Home = 1,
         CreateGame = 2,
         StartGame = 3,
-        StatisticOfGame = 4
+        StatisticOfGame = 4,
+        SaveStatistic = 5
     }   
 }

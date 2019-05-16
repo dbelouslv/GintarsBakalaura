@@ -3,7 +3,6 @@ using Bakalaurs.BusinessLogic.MainModel;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -36,24 +35,35 @@ namespace Bakalaurs
                     Controls.Remove(HomePanel);
                     Controls.Remove(ManageGame);
                     Controls.Remove(StatisticOfGamePanel);
+                    Controls.Remove(PrintEvent);
                     break;
                 case PanelType.StartGame:
                     Controls.Add(ManageGame);
                     Controls.Remove(HomePanel);
                     Controls.Remove(StatisticOfGamePanel);
                     Controls.Remove(CreateGame);
+                    Controls.Remove(PrintEvent);
                     break;
                 case PanelType.StatisticOfGame:
                     Controls.Add(StatisticOfGamePanel);
                     Controls.Remove(HomePanel);
                     Controls.Remove(CreateGame);
                     Controls.Remove(ManageGame);
+                    Controls.Remove(PrintEvent);
+                    break;
+                case PanelType.SaveStatistic:
+                    Controls.Add(PrintEvent);
+                    Controls.Remove(HomePanel);
+                    Controls.Remove(CreateGame);
+                    Controls.Remove(ManageGame);
+                    Controls.Remove(StatisticOfGamePanel);
                     break;
                 default:
                     Controls.Add(HomePanel);
                     Controls.Remove(StatisticOfGamePanel);
                     Controls.Remove(CreateGame);
                     Controls.Remove(ManageGame);
+                    Controls.Remove(PrintEvent);
                     break;
             }
         }
@@ -190,7 +200,8 @@ namespace Bakalaurs
         {
             SetScrollPanelHeight(buttonPrint.Height, buttonPrint.Top, "Printēt spēles statistiku");
 
-            var fs = new FileStream("Statistics.pdf", FileMode.Create, FileAccess.Write, FileShare.None);
+            var path = savedPath.Text + "//Statistics.pdf";
+            var fs = new FileStream(path, FileMode.Create, FileAccess.Write, FileShare.None);
             var doc = new Document();
             var writer = PdfWriter.GetInstance(doc, fs);
 
@@ -304,6 +315,12 @@ namespace Bakalaurs
             SetScrollPanelHeight(buttonNewGame.Height, buttonNewGame.Top, "Sakt jaunu spēli");
             SetActivePanel(PanelType.StartGame);
             SetRadioButtonsForManage();
+        }
+
+        public void GoToPrint(object sender, EventArgs e)
+        {
+            SetScrollPanelHeight(buttonNewGame.Height, buttonNewGame.Top, "Saglabāt statistiku");
+            SetActivePanel(PanelType.SaveStatistic);
         }
 
         public void AddOnePointToActivePlayer(object sender, EventArgs e)
@@ -504,5 +521,13 @@ namespace Bakalaurs
             else
                 _mainManager.SetError("Laiks, vieta vai tiesnieši bija tukši", ref ErrorLabel);
         }
+
+        public void OpenFolderDialog(object sender, EventArgs e)
+        {
+            if (selectFolder.ShowDialog() == DialogResult.OK)
+            {
+                savedPath.Text = selectFolder.SelectedPath;
+            }
+        }       
     }
 }
