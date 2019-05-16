@@ -139,7 +139,7 @@ namespace Bakalaurs
                     Location = new System.Drawing.Point(250, startY),
                     Name = player.Id.ToString(),
                     Size = new System.Drawing.Size(200, 25),
-                    Text = $"#{player.Number} {player.FirstName} {player.LastName} - {player.Points}   ({player.Missed} - {player.AST} - {player.REB})"
+                    Text = $"#{player.Number} {player.FirstName} {player.LastName} - {player.Points}   ({player.Missed} - {player.AST} - {player.REB} - {player.Foul})"
                 };
 
                 StatisticOfGamePanel.Controls.Add(label);
@@ -157,7 +157,7 @@ namespace Bakalaurs
                     Location = new System.Drawing.Point(250, startY),
                     Name = player.Id.ToString(),
                     Size = new System.Drawing.Size(200, 25),
-                    Text = $"#{player.Number} {player.FirstName} {player.LastName} - {player.Points}   ({player.Missed} - {player.AST} - {player.REB})"
+                    Text = $"#{player.Number} {player.FirstName} {player.LastName} - {player.Points}   ({player.Missed} - {player.AST} - {player.REB} - {player.Foul})"
                 };
 
                 StatisticOfGamePanel.Controls.Add(label);
@@ -207,14 +207,14 @@ namespace Bakalaurs
 
             foreach (var player in rosterOfFirstTeam)
             {
-                doc.Add(new Paragraph($"#{player.Number} {player.FirstName} {player.LastName} - {player.Points}   ({player.Missed} - {player.AST} - {player.REB})", new Font { Size = 14 }));
+                doc.Add(new Paragraph($"#{player.Number} {player.FirstName} {player.LastName} - {player.Points}   ({player.Missed} - {player.AST} - {player.REB} - {player.Foul})", new Font { Size = 14 }));
             }
 
             doc.Add(new Paragraph($"{SecondTeam.Title} - {teamTwoPoints}", new Font { Size = 20 }));
 
             foreach (var player in rosterOfSecondTeam)
             {
-                doc.Add(new Paragraph($"#{player.Number} {player.FirstName} {player.LastName} - {player.Points}   ({player.Missed} - {player.AST} - {player.REB})", new Font { Size = 14 }));
+                doc.Add(new Paragraph($"#{player.Number} {player.FirstName} {player.LastName} - {player.Points}   ({player.Missed} - {player.AST} - {player.REB} - {player.Foul})", new Font { Size = 14 }));
             }
 
             doc.Close();
@@ -396,6 +396,8 @@ namespace Bakalaurs
                 if (currentPlayer.Points > 0)
                     currentPlayer.Points -= 1;
             }
+
+            UpdateTeamPoints();
         }
 
         private void RemoveTwoPointFromActivePlayer(object sender, EventArgs e)
@@ -407,6 +409,8 @@ namespace Bakalaurs
                 if (currentPlayer.Points > 1)
                     currentPlayer.Points -= 2;
             }
+
+            UpdateTeamPoints();
         }
 
         private void RemoveThreePointFromActivePlayer(object sender, EventArgs e)
@@ -418,6 +422,8 @@ namespace Bakalaurs
                 if (currentPlayer.Points > 2)
                     currentPlayer.Points -= 3;
             }
+
+            UpdateTeamPoints();
         }
 
         private void RemoveREBFromActivePlayer(object sender, EventArgs e)
@@ -426,7 +432,8 @@ namespace Bakalaurs
 
             if (currentPlayer != null)
             {
-                currentPlayer.REB--;
+                if (currentPlayer.REB > 0)
+                    currentPlayer.REB--;
             }
         }
 
@@ -436,7 +443,8 @@ namespace Bakalaurs
 
             if (currentPlayer != null)
             {
-                currentPlayer.Missed--;
+                if (currentPlayer.Missed > 0)
+                    currentPlayer.Missed--;
             }
         }
 
@@ -446,7 +454,8 @@ namespace Bakalaurs
 
             if (currentPlayer != null)
             {
-                currentPlayer.AST--;
+                if (currentPlayer.AST > 0)
+                    currentPlayer.AST--;
             }
         }        
 
@@ -456,7 +465,8 @@ namespace Bakalaurs
 
             if (currentPlayer != null)
             {
-                currentPlayer.Foul--;
+                if (currentPlayer.Foul > 0)
+                    currentPlayer.Foul--;
             }
         }
     }

@@ -542,7 +542,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(295, 17);
             this.label10.TabIndex = 3;
-            this.label10.Text = "#   Vārds   Uzvārds    Punkti  (MSD AST REB)";
+            this.label10.Text = "#   Vārds   Uzvārds    Punkti  (MSD AST REB Foul)";
             // 
             // label9
             // 
@@ -553,7 +553,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(291, 17);
             this.label9.TabIndex = 2;
-            this.label9.Text = "#  Vārds   Uzvārds    Punkti  (MSD AST REB)";
+            this.label9.Text = "#  Vārds   Uzvārds    Punkti  (MSD AST REB Foul)";
             // 
             // StatisticTeamTwo
             // 
