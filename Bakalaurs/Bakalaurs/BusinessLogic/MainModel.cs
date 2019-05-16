@@ -19,6 +19,10 @@ namespace Bakalaurs.BusinessLogic.MainModel
     public class MainInformation
     {
         public List<Player> Players = new List<Player>();
+        public Team FirstTeam;
+        public Team SecondTeam;
+        public string Time;
+        public string Place;
     }
 
     public class Team

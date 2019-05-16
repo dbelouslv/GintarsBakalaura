@@ -12,10 +12,8 @@ namespace Bakalaurs
 {
     public partial class Form1 : Form
     {
-        public List<Player> players = new List<Player>();
-        public Team FirstTeam = new Team();
-        public Team SecondTeam = new Team();
         public Player activePlayer = new Player();
+        public MainInformation activeMatch = new MainInformation();
 
         private readonly IMainManager _mainManager;
 
@@ -70,11 +68,11 @@ namespace Bakalaurs
 
         private void SetRadioButtonsForManage()
         {
-            var rosterOfFirstTeam = players.Where(w => w.Team.Id == FirstTeam.Id).ToList();
-            var rosterOfSecondTeam = players.Where(w => w.Team.Id == SecondTeam.Id).ToList();
+            var rosterOfFirstTeam = activeMatch.Players.Where(w => w.Team.Id == activeMatch.FirstTeam.Id).ToList();
+            var rosterOfSecondTeam = activeMatch.Players.Where(w => w.Team.Id == activeMatch.SecondTeam.Id).ToList();
 
-            teamOneNameLabel.Text = FirstTeam.Title;
-            teamTwoNameLabel.Text = SecondTeam.Title;
+            teamOneNameLabel.Text = activeMatch.FirstTeam.Title;
+            teamTwoNameLabel.Text = activeMatch.SecondTeam.Title;
 
             int startY = 70;
             foreach (var player in rosterOfFirstTeam)
@@ -119,14 +117,14 @@ namespace Bakalaurs
 
         private void SetPlayersStatistic()
         {           
-            var rosterOfFirstTeam = players.Where(w => w.Team.Id == FirstTeam.Id).OrderByDescending(o => o.Points).ToList();
-            var rosterOfSecondTeam = players.Where(w => w.Team.Id == SecondTeam.Id).OrderByDescending(o => o.Points).ToList();
+            var rosterOfFirstTeam = activeMatch.Players.Where(w => w.Team.Id == activeMatch.FirstTeam.Id).OrderByDescending(o => o.Points).ToList();
+            var rosterOfSecondTeam = activeMatch.Players.Where(w => w.Team.Id == activeMatch.SecondTeam.Id).OrderByDescending(o => o.Points).ToList();
 
-            var teamOnePoints = players.Where(w => w.Team.Id == FirstTeam.Id).Sum(s => s.Points);
-            var teamTwoPoints = players.Where(w => w.Team.Id == SecondTeam.Id).Sum(s => s.Points);
+            var teamOnePoints = activeMatch.Players.Where(w => w.Team.Id == activeMatch.FirstTeam.Id).Sum(s => s.Points);
+            var teamTwoPoints = activeMatch.Players.Where(w => w.Team.Id == activeMatch.SecondTeam.Id).Sum(s => s.Points);
 
-            StatisticTeamOne.Text = $"{FirstTeam.Title} - {teamOnePoints}";
-            StatisticTeamTwo.Text = $"{SecondTeam.Title} - {teamTwoPoints}";
+            StatisticTeamOne.Text = $"{activeMatch.FirstTeam.Title} - {teamOnePoints}";
+            StatisticTeamTwo.Text = $"{activeMatch.SecondTeam.Title} - {teamTwoPoints}";
 
             int startY = 75;
             foreach (var player in rosterOfFirstTeam)
@@ -171,7 +169,7 @@ namespace Bakalaurs
 
             if (int.TryParse(radio.Name, out int playerId))
             {
-                var player = players.FirstOrDefault(f => f.Id == playerId);
+                var player = activeMatch.Players.FirstOrDefault(f => f.Id == playerId);
                 if (player != null)
                 {
                     activePlayer = player;
@@ -181,11 +179,11 @@ namespace Bakalaurs
 
         private void UpdateTeamPoints()
         {
-            var teamOnePoints = players.Where(w => w.Team.Id == FirstTeam.Id).Sum(s => s.Points);
-            var teamTwoPoints = players.Where(w => w.Team.Id == SecondTeam.Id).Sum(s => s.Points);
+            var teamOnePoints = activeMatch.Players.Where(w => w.Team.Id == activeMatch.FirstTeam.Id).Sum(s => s.Points);
+            var teamTwoPoints = activeMatch.Players.Where(w => w.Team.Id == activeMatch.SecondTeam.Id).Sum(s => s.Points);
 
-            teamOneNameLabel.Text = $"{FirstTeam.Title} - {teamOnePoints}";
-            teamTwoNameLabel.Text = $"{SecondTeam.Title} - {teamTwoPoints}";
+            teamOneNameLabel.Text = $"{activeMatch.FirstTeam.Title} - {teamOnePoints}";
+            teamTwoNameLabel.Text = $"{activeMatch.SecondTeam.Title} - {teamTwoPoints}";
         }
 
         public void Print(object sender, EventArgs e)
@@ -196,21 +194,21 @@ namespace Bakalaurs
             var doc = new Document();
             var writer = PdfWriter.GetInstance(doc, fs);
 
-            var teamOnePoints = players.Where(w => w.Team.Id == FirstTeam.Id).Sum(s => s.Points);
-            var teamTwoPoints = players.Where(w => w.Team.Id == SecondTeam.Id).Sum(s => s.Points);
+            var teamOnePoints = activeMatch.Players.Where(w => w.Team.Id == activeMatch.FirstTeam.Id).Sum(s => s.Points);
+            var teamTwoPoints = activeMatch.Players.Where(w => w.Team.Id == activeMatch.SecondTeam.Id).Sum(s => s.Points);
 
-            var rosterOfFirstTeam = players.Where(w => w.Team.Id == FirstTeam.Id).OrderByDescending(o => o.Points).ToList();
-            var rosterOfSecondTeam = players.Where(w => w.Team.Id == SecondTeam.Id).OrderByDescending(o => o.Points).ToList();
+            var rosterOfFirstTeam = activeMatch.Players.Where(w => w.Team.Id == activeMatch.FirstTeam.Id).OrderByDescending(o => o.Points).ToList();
+            var rosterOfSecondTeam = activeMatch.Players.Where(w => w.Team.Id == activeMatch.SecondTeam.Id).OrderByDescending(o => o.Points).ToList();
 
             doc.Open();
-            doc.Add(new Paragraph($"{FirstTeam.Title} - {teamOnePoints}", new Font { Size = 20 }));
+            doc.Add(new Paragraph($"{activeMatch.FirstTeam.Title} - {teamOnePoints}", new Font { Size = 20 }));
 
             foreach (var player in rosterOfFirstTeam)
             {
                 doc.Add(new Paragraph($"#{player.Number} {player.FirstName} {player.LastName} - {player.Points}   ({player.Missed} - {player.AST} - {player.REB} - {player.Foul})", new Font { Size = 14 }));
             }
 
-            doc.Add(new Paragraph($"{SecondTeam.Title} - {teamTwoPoints}", new Font { Size = 20 }));
+            doc.Add(new Paragraph($"{activeMatch.SecondTeam.Title} - {teamTwoPoints}", new Font { Size = 20 }));
 
             foreach (var player in rosterOfSecondTeam)
             {
@@ -233,7 +231,8 @@ namespace Bakalaurs
 
         public void SaveFirstTeam(object sender, EventArgs e)
         {
-            _mainManager.CreaTeam(ref FirstTeam, 1, ref textBox1, ref SaveFirstTeamName);
+            activeMatch.FirstTeam = new Team();
+            _mainManager.CreaTeam(ref activeMatch.FirstTeam, 1, ref textBox1, ref SaveFirstTeamName);
 
             _mainManager.SetVisability(ref label6, ref pOneFirstName,
                 ref pOneLastName, ref AddTeamFirstPlayer, ref richTextBox1, ref firstNumber);
@@ -241,7 +240,8 @@ namespace Bakalaurs
 
         public void SaveSecondTeam(object sender, EventArgs e)
         {
-            _mainManager.CreaTeam(ref SecondTeam, 2, ref textBox2, ref SaveSecondTeamName);
+            activeMatch.SecondTeam = new Team();
+            _mainManager.CreaTeam(ref activeMatch.SecondTeam, 2, ref textBox2, ref SaveSecondTeamName);
 
             _mainManager.SetVisability(ref label7, ref pSecondFirstName,
                 ref pSecondLastName, ref AddTeamSecondPlayer, ref richTextBox2, ref secondNumber);
@@ -251,32 +251,32 @@ namespace Bakalaurs
         {
             if (_mainManager.IfFieldsAreFilled(pOneFirstName.Text, pOneLastName.Text, firstNumber.Text, out int number))
             {
-                players.Add(_mainManager.CreatePlayer(pOneFirstName.Text, pOneLastName.Text, FirstTeam, number, players.Count()));
+                activeMatch.Players.Add(_mainManager.CreatePlayer(pOneFirstName.Text, pOneLastName.Text, activeMatch.FirstTeam, number, activeMatch.Players.Count()));
                 _mainManager.ResetPlayerFields(ref pOneFirstName, ref pOneLastName, ref firstNumber, ref ErrorLabel);
 
-                var lastPlayer = players.Last();
+                var lastPlayer = activeMatch.Players.Last();
                 _mainManager.AppendRichTextBox(ref richTextBox1, $"#{lastPlayer.Number} {lastPlayer.FirstName} {lastPlayer.LastName}\n");
             }
             else
                 _mainManager.SetError("Kļūda! Tukšs laukums.", ref ErrorLabel);
 
-            _mainManager.ShowButtonManage(ref ToStartGame, players);
+            _mainManager.ShowButtonManage(ref ToStartGame, activeMatch.Players);
         }
 
         public void AddForSecondTeamPlayer(object sender, EventArgs e)
         {
             if (_mainManager.IfFieldsAreFilled(pSecondFirstName.Text, pSecondLastName.Text, secondNumber.Text, out int number))
             {
-                players.Add(_mainManager.CreatePlayer(pSecondFirstName.Text, pSecondLastName.Text, SecondTeam, number, players.Count()));
+                activeMatch.Players.Add(_mainManager.CreatePlayer(pSecondFirstName.Text, pSecondLastName.Text, activeMatch.SecondTeam, number, activeMatch.Players.Count()));
                 _mainManager.ResetPlayerFields(ref pSecondFirstName, ref pSecondLastName, ref secondNumber, ref ErrorLabel);
 
-                var lastPlayer = players.Last();
+                var lastPlayer = activeMatch.Players.Last();
                 _mainManager.AppendRichTextBox(ref richTextBox2, $"#{lastPlayer.Number} {lastPlayer.FirstName} {lastPlayer.LastName}\n");
             }
             else
                 _mainManager.SetError("Kļūda! Tukšs laukums.", ref ErrorLabel);
 
-            _mainManager.ShowButtonManage(ref ToStartGame, players);
+            _mainManager.ShowButtonManage(ref ToStartGame, activeMatch.Players);
         }
 
         public void GoToHome(object sender, EventArgs e)
@@ -289,6 +289,8 @@ namespace Bakalaurs
         {
             SetScrollPanelHeight(buttonNewGame.Height, buttonNewGame.Top, "Izveidot jaunu spēli");
             SetActivePanel(PanelType.CreateGame);
+            activeMatch = new MainInformation();
+            ResetNewGameDate();
         }
 
         public void ShowGameStatistic(object sender, EventArgs e)
@@ -306,7 +308,7 @@ namespace Bakalaurs
 
         public void AddOnePointToActivePlayer(object sender, EventArgs e)
         {
-            var currentPlayer = players.FirstOrDefault(f => f.Id == activePlayer.Id);
+            var currentPlayer = activeMatch.Players.FirstOrDefault(f => f.Id == activePlayer.Id);
 
             if (currentPlayer != null)
             {
@@ -318,7 +320,7 @@ namespace Bakalaurs
 
         public void AddTwoPointToActivePlayer(object sender, EventArgs e)
         {
-            var currentPlayer = players.FirstOrDefault(f => f.Id == activePlayer.Id);
+            var currentPlayer = activeMatch.Players.FirstOrDefault(f => f.Id == activePlayer.Id);
 
             if (currentPlayer != null)
             {
@@ -330,7 +332,7 @@ namespace Bakalaurs
 
         public void AddThreePointToActivePlayer(object sender, EventArgs e)
         {
-            var currentPlayer = players.FirstOrDefault(f => f.Id == activePlayer.Id);
+            var currentPlayer = activeMatch.Players.FirstOrDefault(f => f.Id == activePlayer.Id);
 
             if (currentPlayer != null)
             {
@@ -342,7 +344,7 @@ namespace Bakalaurs
 
         public void AddRebToActivePlayer(object sender, EventArgs e)
         {
-            var currentPlayer = players.FirstOrDefault(f => f.Id == activePlayer.Id);
+            var currentPlayer = activeMatch.Players.FirstOrDefault(f => f.Id == activePlayer.Id);
 
             if (currentPlayer != null)
             {
@@ -352,7 +354,7 @@ namespace Bakalaurs
 
         public void AddMissedToActivePlayer(object sender, EventArgs e)
         {
-            var currentPlayer = players.FirstOrDefault(f => f.Id == activePlayer.Id);
+            var currentPlayer = activeMatch.Players.FirstOrDefault(f => f.Id == activePlayer.Id);
 
             if (currentPlayer != null)
             {
@@ -362,7 +364,7 @@ namespace Bakalaurs
 
         public void AddAstToActivePlayer(object sender, EventArgs e)
         {
-            var currentPlayer = players.FirstOrDefault(f => f.Id == activePlayer.Id);
+            var currentPlayer = activeMatch.Players.FirstOrDefault(f => f.Id == activePlayer.Id);
 
             if (currentPlayer != null)
             {
@@ -370,9 +372,9 @@ namespace Bakalaurs
             }
         }
 
-        private void AddToFromActivePlayer(object sender, EventArgs e)
+        public void AddToFromActivePlayer(object sender, EventArgs e)
         {
-            var currentPlayer = players.FirstOrDefault(f => f.Id == activePlayer.Id);
+            var currentPlayer = activeMatch.Players.FirstOrDefault(f => f.Id == activePlayer.Id);
 
             if (currentPlayer != null)
             {
@@ -387,9 +389,9 @@ namespace Bakalaurs
             SetPlayersStatistic();
         }
 
-        private void RemoveOnePointFromActivePlayer(object sender, EventArgs e)
+        public void RemoveOnePointFromActivePlayer(object sender, EventArgs e)
         {
-            var currentPlayer = players.FirstOrDefault(f => f.Id == activePlayer.Id);
+            var currentPlayer = activeMatch.Players.FirstOrDefault(f => f.Id == activePlayer.Id);
 
             if (currentPlayer != null)
             {
@@ -400,9 +402,9 @@ namespace Bakalaurs
             UpdateTeamPoints();
         }
 
-        private void RemoveTwoPointFromActivePlayer(object sender, EventArgs e)
+        public void RemoveTwoPointFromActivePlayer(object sender, EventArgs e)
         {
-            var currentPlayer = players.FirstOrDefault(f => f.Id == activePlayer.Id);
+            var currentPlayer = activeMatch.Players.FirstOrDefault(f => f.Id == activePlayer.Id);
 
             if (currentPlayer != null)
             {
@@ -413,9 +415,9 @@ namespace Bakalaurs
             UpdateTeamPoints();
         }
 
-        private void RemoveThreePointFromActivePlayer(object sender, EventArgs e)
+        public void RemoveThreePointFromActivePlayer(object sender, EventArgs e)
         {
-            var currentPlayer = players.FirstOrDefault(f => f.Id == activePlayer.Id);
+            var currentPlayer = activeMatch.Players.FirstOrDefault(f => f.Id == activePlayer.Id);
 
             if (currentPlayer != null)
             {
@@ -426,9 +428,9 @@ namespace Bakalaurs
             UpdateTeamPoints();
         }
 
-        private void RemoveREBFromActivePlayer(object sender, EventArgs e)
+        public void RemoveREBFromActivePlayer(object sender, EventArgs e)
         {
-            var currentPlayer = players.FirstOrDefault(f => f.Id == activePlayer.Id);
+            var currentPlayer = activeMatch.Players.FirstOrDefault(f => f.Id == activePlayer.Id);
 
             if (currentPlayer != null)
             {
@@ -437,9 +439,9 @@ namespace Bakalaurs
             }
         }
 
-        private void RemoveMSDFromActivePlayer(object sender, EventArgs e)
+        public void RemoveMSDFromActivePlayer(object sender, EventArgs e)
         {
-            var currentPlayer = players.FirstOrDefault(f => f.Id == activePlayer.Id);
+            var currentPlayer = activeMatch.Players.FirstOrDefault(f => f.Id == activePlayer.Id);
 
             if (currentPlayer != null)
             {
@@ -448,9 +450,9 @@ namespace Bakalaurs
             }
         }
 
-        private void RemoveASTFromActivePlayer(object sender, EventArgs e)
+        public void RemoveASTFromActivePlayer(object sender, EventArgs e)
         {
-            var currentPlayer = players.FirstOrDefault(f => f.Id == activePlayer.Id);
+            var currentPlayer = activeMatch.Players.FirstOrDefault(f => f.Id == activePlayer.Id);
 
             if (currentPlayer != null)
             {
@@ -459,15 +461,30 @@ namespace Bakalaurs
             }
         }        
 
-        private void RemoveFoulFromActivePlayer(object sender, EventArgs e)
+        public void RemoveFoulFromActivePlayer(object sender, EventArgs e)
         {
-            var currentPlayer = players.FirstOrDefault(f => f.Id == activePlayer.Id);
+            var currentPlayer = activeMatch.Players.FirstOrDefault(f => f.Id == activePlayer.Id);
 
             if (currentPlayer != null)
             {
                 if (currentPlayer.Foul > 0)
                     currentPlayer.Foul--;
             }
+        }
+
+        private void ResetNewGameDate()
+        {
+            pOneFirstName.Text = pOneLastName.Text = firstNumber.Text
+                = pSecondFirstName.Text = pSecondLastName.Text = secondNumber.Text = textBox1.Text = textBox2.Text = string.Empty;
+
+            richTextBox1.Clear();
+            richTextBox2.Clear();
+
+            pOneFirstName.Visible = pOneLastName.Visible = firstNumber.Visible 
+                = pSecondFirstName.Visible = pSecondLastName.Visible = secondNumber.Visible = ToStartGame.Visible 
+                = AddTeamFirstPlayer.Visible = AddTeamSecondPlayer.Visible = label6.Visible = label7.Visible = false;
+
+            SaveFirstTeamName.Visible = SaveSecondTeamName.Visible = textBox1.Enabled = textBox2.Enabled = true;
         }
     }
 }
