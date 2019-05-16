@@ -23,6 +23,8 @@ namespace Bakalaurs
             SetScrollPanelHeight(buttonHome.Height, buttonHome.Top, "Galvenā");
             SetActivePanel(PanelType.Home);
 
+            buttonShowStatistics.Visible = buttonPrint.Visible = false;
+
             _mainManager = mainManager;
         }
 
@@ -144,7 +146,7 @@ namespace Bakalaurs
                     AutoSize = true,
                     Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204))),
                     ForeColor = System.Drawing.Color.White,
-                    Location = new System.Drawing.Point(250, startY),
+                    Location = new System.Drawing.Point(150, startY),
                     Name = player.Id.ToString(),
                     Size = new System.Drawing.Size(200, 25),
                     Text = $"#{player.Number} {player.FirstName} {player.LastName} - {player.Points} Points    ({player.Missed} missed shots - {player.AST} assists - {player.REB} rebounds - {player.Foul} fouls)"
@@ -162,7 +164,7 @@ namespace Bakalaurs
                     AutoSize = true,
                     Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204))),
                     ForeColor = System.Drawing.Color.White,
-                    Location = new System.Drawing.Point(250, startY),
+                    Location = new System.Drawing.Point(150, startY),
                     Name = player.Id.ToString(),
                     Size = new System.Drawing.Size(200, 25),
                     Text = $"#{player.Number} {player.FirstName} {player.LastName} - {player.Points} Points    ({player.Missed} missed shots - {player.AST} assists - {player.REB} rebounds - {player.Foul} fouls)"
@@ -242,6 +244,8 @@ namespace Bakalaurs
             doc.Close();
             writer.Close();
             fs.Close();
+
+            textSaglabat.Text = "PDF saglabāt!";
         }
 
         public void Exit(object sender, EventArgs e)
@@ -334,6 +338,7 @@ namespace Bakalaurs
         {
             SetScrollPanelHeight(buttonNewGame.Height, buttonNewGame.Top, "Saglabāt statistiku");
             SetActivePanel(PanelType.SaveStatistic);
+            textSaglabat.Text = savedPath.Text = string.Empty;
         }
 
         public void AddOnePointToActivePlayer(object sender, EventArgs e)
@@ -417,6 +422,8 @@ namespace Bakalaurs
             SetScrollPanelHeight(buttonShowStatistics.Height, buttonShowStatistics.Top, "Izvadīt spēles statistiku");
             SetActivePanel(PanelType.StatisticOfGame);
             SetPlayersStatistic();
+            buttonShowStatistics.Visible = true;
+            buttonPrint.Visible = true;
         }
 
         public void RemoveOnePointFromActivePlayer(object sender, EventArgs e)
