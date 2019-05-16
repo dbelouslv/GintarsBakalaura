@@ -149,7 +149,7 @@ namespace Bakalaurs
                     Location = new System.Drawing.Point(150, startY),
                     Name = player.Id.ToString(),
                     Size = new System.Drawing.Size(200, 25),
-                    Text = $"#{player.Number} {player.FirstName} {player.LastName} - {player.Points} Points    ({player.Missed} missed shots - {player.AST} assists - {player.REB} rebounds - {player.Foul} fouls)"
+                    Text = $"#{player.Number} {player.FirstName} {player.LastName} - {player.Points} Points ({player.Missed} missed shots - {player.AST} assists - {player.REB} rebounds - {player.Foul} fouls)"
                 };
 
                 StatisticOfGamePanel.Controls.Add(label);
@@ -167,7 +167,7 @@ namespace Bakalaurs
                     Location = new System.Drawing.Point(150, startY),
                     Name = player.Id.ToString(),
                     Size = new System.Drawing.Size(200, 25),
-                    Text = $"#{player.Number} {player.FirstName} {player.LastName} - {player.Points} Points    ({player.Missed} missed shots - {player.AST} assists - {player.REB} rebounds - {player.Foul} fouls)"
+                    Text = $"#{player.Number} {player.FirstName} {player.LastName} - {player.Points} Points ({player.Missed} missed shots - {player.AST} assists - {player.REB} rebounds - {player.Foul} fouls)"
                 };
 
                 StatisticOfGamePanel.Controls.Add(label);
@@ -221,24 +221,26 @@ namespace Bakalaurs
 
             var beforeTop = new Paragraph($"{activeMatch.FirstTeam.Title} - {teamOnePoints}", new Font { Size = 20 })
             {
-                PaddingTop = 100
+                SpacingBefore = 50,
+                SpacingAfter = 15
             };
             doc.Add(beforeTop);
 
             foreach (var player in rosterOfFirstTeam)
             {
-                doc.Add(new Paragraph($"#{player.Number} {player.FirstName} {player.LastName} - {player.Points} Points   ({player.Missed} missed shots - {player.AST} assists - {player.REB} rebounds - {player.Foul} fouls)", new Font { Size = 14 }));
+                doc.Add(new Paragraph($"#{player.Number} {player.FirstName} {player.LastName} - {player.Points} Points ({player.Missed} missed shots - {player.AST} assists - {player.REB} rebounds - {player.Foul} fouls)", new Font { Size = 12 }));
             }
 
             beforeTop = new Paragraph($"{activeMatch.SecondTeam.Title} - {teamTwoPoints}", new Font { Size = 20 })
             {
-                PaddingTop = 100
+                SpacingBefore = 15,
+                SpacingAfter = 15
             };
             doc.Add(beforeTop);
 
             foreach (var player in rosterOfSecondTeam)
             {
-                doc.Add(new Paragraph($"#{player.Number} {player.FirstName} {player.LastName} - {player.Points} Points   ({player.Missed} missed shots - {player.AST} assists - {player.REB} rebounds - {player.Foul} fouls)", new Font { Size = 14 }));
+                doc.Add(new Paragraph($"#{player.Number} {player.FirstName} {player.LastName} - {player.Points} Points ({player.Missed} missed shots - {player.AST} assists - {player.REB} rebounds - {player.Foul} fouls)", new Font { Size = 12 }));
             }
 
             doc.Close();

@@ -642,7 +642,7 @@
             // 
             this.StatisticTeamOne.AutoSize = true;
             this.StatisticTeamOne.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.StatisticTeamOne.Location = new System.Drawing.Point(13, 55);
+            this.StatisticTeamOne.Location = new System.Drawing.Point(13, 35);
             this.StatisticTeamOne.Name = "StatisticTeamOne";
             this.StatisticTeamOne.Size = new System.Drawing.Size(0, 24);
             this.StatisticTeamOne.TabIndex = 0;
