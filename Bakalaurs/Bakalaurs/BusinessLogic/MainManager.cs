@@ -12,7 +12,7 @@ namespace Bakalaurs.BusinessLogic.MainManager
         void SetError(string errorMessage, ref Label label);
         void ResetPlayerFields(ref TextBox firstTextBox, ref TextBox secondTextBox, ref TextBox numberTextBox, ref Label label);
         void AppendRichTextBox(ref RichTextBox richTextBox1, string message);
-        void ShowButtonManage(ref Button toStartGame, List<Player> players);
+        void ShowButtonManage(ref Button toStartGame, List<Player> players, TextBox time, TextBox place);
         void CreaTeam(ref Team team, int id, ref TextBox textBox, ref Button button);
         void SetVisability(ref Label label, ref TextBox textboxFirstName, ref TextBox textboxLastName, ref Button button, ref RichTextBox richTextBox, ref TextBox numberTextBox);
     }
@@ -57,11 +57,12 @@ namespace Bakalaurs.BusinessLogic.MainManager
             richTextBox.AppendText(message);
         }
 
-        public void ShowButtonManage(ref Button toStartGame, List<Player> players) 
+        public void ShowButtonManage(ref Button toStartGame, List<Player> players, TextBox time, TextBox place) 
         {
             if (players.Any(a => a.Team.Id == 1) && players.Any(a => a.Team.Id == 2))
             {
-                toStartGame.Visible = true;
+                if (!string.IsNullOrEmpty(time.Text) && !string.IsNullOrEmpty(place.Text))
+                    toStartGame.Visible = true;
             }
         }
 

@@ -260,7 +260,7 @@ namespace Bakalaurs
             else
                 _mainManager.SetError("Kļūda! Tukšs laukums.", ref ErrorLabel);
 
-            _mainManager.ShowButtonManage(ref ToStartGame, activeMatch.Players);
+            _mainManager.ShowButtonManage(ref ToStartGame, activeMatch.Players, timeInput, placeInput);
         }
 
         public void AddForSecondTeamPlayer(object sender, EventArgs e)
@@ -276,7 +276,7 @@ namespace Bakalaurs
             else
                 _mainManager.SetError("Kļūda! Tukšs laukums.", ref ErrorLabel);
 
-            _mainManager.ShowButtonManage(ref ToStartGame, activeMatch.Players);
+            _mainManager.ShowButtonManage(ref ToStartGame, activeMatch.Players, timeInput, placeInput);
         }
 
         public void GoToHome(object sender, EventArgs e)
@@ -498,9 +498,11 @@ namespace Bakalaurs
 
                 activeMatch.Place = placeInput.Text;
                 activeMatch.Time = timeInput.Text;
+
+                _mainManager.ShowButtonManage(ref ToStartGame, activeMatch.Players, timeInput, placeInput);
             }
             else
-                ErrorLabel.Text = "Laiks vai vieta bija tukši!";
+                _mainManager.SetError("Laiks vai vieta bija tukši", ref ErrorLabel);
         }
     }
 }
