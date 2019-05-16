@@ -370,11 +370,94 @@ namespace Bakalaurs
             }
         }
 
+        private void AddToFromActivePlayer(object sender, EventArgs e)
+        {
+            var currentPlayer = players.FirstOrDefault(f => f.Id == activePlayer.Id);
+
+            if (currentPlayer != null)
+            {
+                currentPlayer.Foul++;
+            }
+        }
+
         public void SaveData(object sender, EventArgs e)
         {
             SetScrollPanelHeight(buttonShowStatistics.Height, buttonShowStatistics.Top, "Izvadīt spēles statistiku");
             SetActivePanel(PanelType.StatisticOfGame);
             SetPlayersStatistic();
+        }
+
+        private void RemoveOnePointFromActivePlayer(object sender, EventArgs e)
+        {
+            var currentPlayer = players.FirstOrDefault(f => f.Id == activePlayer.Id);
+
+            if (currentPlayer != null)
+            {
+                if (currentPlayer.Points > 0)
+                    currentPlayer.Points -= 1;
+            }
+        }
+
+        private void RemoveTwoPointFromActivePlayer(object sender, EventArgs e)
+        {
+            var currentPlayer = players.FirstOrDefault(f => f.Id == activePlayer.Id);
+
+            if (currentPlayer != null)
+            {
+                if (currentPlayer.Points > 1)
+                    currentPlayer.Points -= 2;
+            }
+        }
+
+        private void RemoveThreePointFromActivePlayer(object sender, EventArgs e)
+        {
+            var currentPlayer = players.FirstOrDefault(f => f.Id == activePlayer.Id);
+
+            if (currentPlayer != null)
+            {
+                if (currentPlayer.Points > 2)
+                    currentPlayer.Points -= 3;
+            }
+        }
+
+        private void RemoveREBFromActivePlayer(object sender, EventArgs e)
+        {
+            var currentPlayer = players.FirstOrDefault(f => f.Id == activePlayer.Id);
+
+            if (currentPlayer != null)
+            {
+                currentPlayer.REB--;
+            }
+        }
+
+        private void RemoveMSDFromActivePlayer(object sender, EventArgs e)
+        {
+            var currentPlayer = players.FirstOrDefault(f => f.Id == activePlayer.Id);
+
+            if (currentPlayer != null)
+            {
+                currentPlayer.Missed--;
+            }
+        }
+
+        private void RemoveASTFromActivePlayer(object sender, EventArgs e)
+        {
+            var currentPlayer = players.FirstOrDefault(f => f.Id == activePlayer.Id);
+
+            if (currentPlayer != null)
+            {
+                currentPlayer.AST--;
+            }
+        }        
+
+        private void RemoveFoulFromActivePlayer(object sender, EventArgs e)
+        {
+            var currentPlayer = players.FirstOrDefault(f => f.Id == activePlayer.Id);
+
+            if (currentPlayer != null)
+            {
+                currentPlayer.Foul--;
+            }
         }
     }
 }

@@ -71,6 +71,14 @@
             this.StatisticTeamTwo = new System.Windows.Forms.Label();
             this.StatisticTeamOne = new System.Windows.Forms.Label();
             this.ManageGame = new System.Windows.Forms.Panel();
+            this.removeFoulbtn = new System.Windows.Forms.Button();
+            this.addfoulbtn = new System.Windows.Forms.Button();
+            this.removeAstBTN = new System.Windows.Forms.Button();
+            this.removeMsdBTN = new System.Windows.Forms.Button();
+            this.removeRebBTN = new System.Windows.Forms.Button();
+            this.removeThreePt = new System.Windows.Forms.Button();
+            this.removeTwoPt = new System.Windows.Forms.Button();
+            this.removeOnePt = new System.Windows.Forms.Button();
             this.teamTwoNameLabel = new System.Windows.Forms.Label();
             this.teamOneNameLabel = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
@@ -567,6 +575,14 @@
             // 
             // ManageGame
             // 
+            this.ManageGame.Controls.Add(this.removeFoulbtn);
+            this.ManageGame.Controls.Add(this.addfoulbtn);
+            this.ManageGame.Controls.Add(this.removeAstBTN);
+            this.ManageGame.Controls.Add(this.removeMsdBTN);
+            this.ManageGame.Controls.Add(this.removeRebBTN);
+            this.ManageGame.Controls.Add(this.removeThreePt);
+            this.ManageGame.Controls.Add(this.removeTwoPt);
+            this.ManageGame.Controls.Add(this.removeOnePt);
             this.ManageGame.Controls.Add(this.teamTwoNameLabel);
             this.ManageGame.Controls.Add(this.teamOneNameLabel);
             this.ManageGame.Controls.Add(this.saveButton);
@@ -580,6 +596,118 @@
             this.ManageGame.Name = "ManageGame";
             this.ManageGame.Size = new System.Drawing.Size(810, 518);
             this.ManageGame.TabIndex = 12;
+            // 
+            // removeFoulbtn
+            // 
+            this.removeFoulbtn.BackColor = System.Drawing.Color.Transparent;
+            this.removeFoulbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.removeFoulbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.removeFoulbtn.ForeColor = System.Drawing.Color.Red;
+            this.removeFoulbtn.Location = new System.Drawing.Point(460, 423);
+            this.removeFoulbtn.Name = "removeFoulbtn";
+            this.removeFoulbtn.Size = new System.Drawing.Size(78, 33);
+            this.removeFoulbtn.TabIndex = 16;
+            this.removeFoulbtn.Text = "-FOUL";
+            this.removeFoulbtn.UseVisualStyleBackColor = false;
+            this.removeFoulbtn.Click += new System.EventHandler(this.RemoveFoulFromActivePlayer);
+            // 
+            // addfoulbtn
+            // 
+            this.addfoulbtn.BackColor = System.Drawing.Color.Transparent;
+            this.addfoulbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addfoulbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addfoulbtn.ForeColor = System.Drawing.Color.Red;
+            this.addfoulbtn.Location = new System.Drawing.Point(280, 423);
+            this.addfoulbtn.Name = "addfoulbtn";
+            this.addfoulbtn.Size = new System.Drawing.Size(74, 33);
+            this.addfoulbtn.TabIndex = 15;
+            this.addfoulbtn.Text = "+FOUL";
+            this.addfoulbtn.UseVisualStyleBackColor = false;
+            this.addfoulbtn.Click += new System.EventHandler(this.AddToFromActivePlayer);
+            // 
+            // removeAstBTN
+            // 
+            this.removeAstBTN.BackColor = System.Drawing.Color.Transparent;
+            this.removeAstBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.removeAstBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.removeAstBTN.ForeColor = System.Drawing.Color.Yellow;
+            this.removeAstBTN.Location = new System.Drawing.Point(729, 472);
+            this.removeAstBTN.Name = "removeAstBTN";
+            this.removeAstBTN.Size = new System.Drawing.Size(66, 33);
+            this.removeAstBTN.TabIndex = 14;
+            this.removeAstBTN.Text = "-AST";
+            this.removeAstBTN.UseVisualStyleBackColor = false;
+            this.removeAstBTN.Click += new System.EventHandler(this.RemoveASTFromActivePlayer);
+            // 
+            // removeMsdBTN
+            // 
+            this.removeMsdBTN.BackColor = System.Drawing.Color.Transparent;
+            this.removeMsdBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.removeMsdBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.removeMsdBTN.ForeColor = System.Drawing.Color.Yellow;
+            this.removeMsdBTN.Location = new System.Drawing.Point(644, 472);
+            this.removeMsdBTN.Name = "removeMsdBTN";
+            this.removeMsdBTN.Size = new System.Drawing.Size(66, 33);
+            this.removeMsdBTN.TabIndex = 13;
+            this.removeMsdBTN.Text = "-MSD";
+            this.removeMsdBTN.UseVisualStyleBackColor = false;
+            this.removeMsdBTN.Click += new System.EventHandler(this.RemoveMSDFromActivePlayer);
+            // 
+            // removeRebBTN
+            // 
+            this.removeRebBTN.BackColor = System.Drawing.Color.Transparent;
+            this.removeRebBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.removeRebBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.removeRebBTN.ForeColor = System.Drawing.Color.Yellow;
+            this.removeRebBTN.Location = new System.Drawing.Point(553, 472);
+            this.removeRebBTN.Name = "removeRebBTN";
+            this.removeRebBTN.Size = new System.Drawing.Size(66, 33);
+            this.removeRebBTN.TabIndex = 12;
+            this.removeRebBTN.Text = "-REB";
+            this.removeRebBTN.UseVisualStyleBackColor = false;
+            this.removeRebBTN.Click += new System.EventHandler(this.RemoveREBFromActivePlayer);
+            // 
+            // removeThreePt
+            // 
+            this.removeThreePt.BackColor = System.Drawing.Color.Transparent;
+            this.removeThreePt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.removeThreePt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.removeThreePt.ForeColor = System.Drawing.Color.Green;
+            this.removeThreePt.Location = new System.Drawing.Point(196, 472);
+            this.removeThreePt.Name = "removeThreePt";
+            this.removeThreePt.Size = new System.Drawing.Size(66, 33);
+            this.removeThreePt.TabIndex = 11;
+            this.removeThreePt.Text = "-3PT";
+            this.removeThreePt.UseVisualStyleBackColor = false;
+            this.removeThreePt.Click += new System.EventHandler(this.RemoveThreePointFromActivePlayer);
+            // 
+            // removeTwoPt
+            // 
+            this.removeTwoPt.BackColor = System.Drawing.Color.Transparent;
+            this.removeTwoPt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.removeTwoPt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.removeTwoPt.ForeColor = System.Drawing.Color.Green;
+            this.removeTwoPt.Location = new System.Drawing.Point(109, 472);
+            this.removeTwoPt.Name = "removeTwoPt";
+            this.removeTwoPt.Size = new System.Drawing.Size(66, 33);
+            this.removeTwoPt.TabIndex = 10;
+            this.removeTwoPt.Text = "-2PT";
+            this.removeTwoPt.UseVisualStyleBackColor = false;
+            this.removeTwoPt.Click += new System.EventHandler(this.RemoveTwoPointFromActivePlayer);
+            // 
+            // removeOnePt
+            // 
+            this.removeOnePt.BackColor = System.Drawing.Color.Transparent;
+            this.removeOnePt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.removeOnePt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.removeOnePt.ForeColor = System.Drawing.Color.Green;
+            this.removeOnePt.Location = new System.Drawing.Point(22, 472);
+            this.removeOnePt.Name = "removeOnePt";
+            this.removeOnePt.Size = new System.Drawing.Size(66, 33);
+            this.removeOnePt.TabIndex = 9;
+            this.removeOnePt.Text = "-PT";
+            this.removeOnePt.UseVisualStyleBackColor = false;
+            this.removeOnePt.Click += new System.EventHandler(this.RemoveOnePointFromActivePlayer);
             // 
             // teamTwoNameLabel
             // 
@@ -608,7 +736,7 @@
             this.saveButton.BackColor = System.Drawing.Color.Transparent;
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.saveButton.ForeColor = System.Drawing.Color.Red;
+            this.saveButton.ForeColor = System.Drawing.Color.White;
             this.saveButton.Location = new System.Drawing.Point(376, 472);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(66, 33);
@@ -623,11 +751,11 @@
             this.astButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.astButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.astButton.ForeColor = System.Drawing.Color.Yellow;
-            this.astButton.Location = new System.Drawing.Point(729, 472);
+            this.astButton.Location = new System.Drawing.Point(729, 423);
             this.astButton.Name = "astButton";
             this.astButton.Size = new System.Drawing.Size(66, 33);
             this.astButton.TabIndex = 5;
-            this.astButton.Text = "AST";
+            this.astButton.Text = "+AST";
             this.astButton.UseVisualStyleBackColor = false;
             this.astButton.Click += new System.EventHandler(this.AddAstToActivePlayer);
             // 
@@ -637,11 +765,11 @@
             this.missedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.missedButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.missedButton.ForeColor = System.Drawing.Color.Yellow;
-            this.missedButton.Location = new System.Drawing.Point(644, 472);
+            this.missedButton.Location = new System.Drawing.Point(644, 423);
             this.missedButton.Name = "missedButton";
             this.missedButton.Size = new System.Drawing.Size(66, 33);
             this.missedButton.TabIndex = 4;
-            this.missedButton.Text = "MSD";
+            this.missedButton.Text = "+MSD";
             this.missedButton.UseVisualStyleBackColor = false;
             this.missedButton.Click += new System.EventHandler(this.AddMissedToActivePlayer);
             // 
@@ -651,11 +779,11 @@
             this.rebButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rebButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.rebButton.ForeColor = System.Drawing.Color.Yellow;
-            this.rebButton.Location = new System.Drawing.Point(553, 472);
+            this.rebButton.Location = new System.Drawing.Point(553, 423);
             this.rebButton.Name = "rebButton";
             this.rebButton.Size = new System.Drawing.Size(66, 33);
             this.rebButton.TabIndex = 3;
-            this.rebButton.Text = "REB";
+            this.rebButton.Text = "+REB";
             this.rebButton.UseVisualStyleBackColor = false;
             this.rebButton.Click += new System.EventHandler(this.AddRebToActivePlayer);
             // 
@@ -665,11 +793,11 @@
             this.addThreePtButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addThreePtButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.addThreePtButton.ForeColor = System.Drawing.Color.Green;
-            this.addThreePtButton.Location = new System.Drawing.Point(196, 472);
+            this.addThreePtButton.Location = new System.Drawing.Point(196, 423);
             this.addThreePtButton.Name = "addThreePtButton";
             this.addThreePtButton.Size = new System.Drawing.Size(66, 33);
             this.addThreePtButton.TabIndex = 2;
-            this.addThreePtButton.Text = "3PT";
+            this.addThreePtButton.Text = "+3PT";
             this.addThreePtButton.UseVisualStyleBackColor = false;
             this.addThreePtButton.Click += new System.EventHandler(this.AddThreePointToActivePlayer);
             // 
@@ -679,11 +807,11 @@
             this.addTwoPtButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addTwoPtButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.addTwoPtButton.ForeColor = System.Drawing.Color.Green;
-            this.addTwoPtButton.Location = new System.Drawing.Point(109, 472);
+            this.addTwoPtButton.Location = new System.Drawing.Point(109, 423);
             this.addTwoPtButton.Name = "addTwoPtButton";
             this.addTwoPtButton.Size = new System.Drawing.Size(66, 33);
             this.addTwoPtButton.TabIndex = 1;
-            this.addTwoPtButton.Text = "2PT";
+            this.addTwoPtButton.Text = "+2PT";
             this.addTwoPtButton.UseVisualStyleBackColor = false;
             this.addTwoPtButton.Click += new System.EventHandler(this.AddTwoPointToActivePlayer);
             // 
@@ -693,11 +821,11 @@
             this.addOnePtButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addOnePtButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.addOnePtButton.ForeColor = System.Drawing.Color.Green;
-            this.addOnePtButton.Location = new System.Drawing.Point(22, 472);
+            this.addOnePtButton.Location = new System.Drawing.Point(22, 423);
             this.addOnePtButton.Name = "addOnePtButton";
             this.addOnePtButton.Size = new System.Drawing.Size(66, 33);
             this.addOnePtButton.TabIndex = 0;
-            this.addOnePtButton.Text = "1PT";
+            this.addOnePtButton.Text = "+PT";
             this.addOnePtButton.UseVisualStyleBackColor = false;
             this.addOnePtButton.Click += new System.EventHandler(this.AddOnePointToActivePlayer);
             // 
@@ -789,6 +917,14 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label StatisticTeamTwo;
         private System.Windows.Forms.Label StatisticTeamOne;
+        private System.Windows.Forms.Button removeAstBTN;
+        private System.Windows.Forms.Button removeMsdBTN;
+        private System.Windows.Forms.Button removeRebBTN;
+        private System.Windows.Forms.Button removeThreePt;
+        private System.Windows.Forms.Button removeTwoPt;
+        private System.Windows.Forms.Button removeOnePt;
+        private System.Windows.Forms.Button removeFoulbtn;
+        private System.Windows.Forms.Button addfoulbtn;
     }
 }
 
