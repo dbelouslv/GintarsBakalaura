@@ -260,7 +260,7 @@ namespace Bakalaurs
             else
                 _mainManager.SetError("Kļūda! Tukšs laukums.", ref ErrorLabel);
 
-            _mainManager.ShowButtonManage(ref ToStartGame, activeMatch.Players, timeInput, placeInput);
+            _mainManager.ShowButtonManage(ref ToStartGame, activeMatch.Players, timeInput, placeInput, tesniesi);
         }
 
         public void AddForSecondTeamPlayer(object sender, EventArgs e)
@@ -276,7 +276,7 @@ namespace Bakalaurs
             else
                 _mainManager.SetError("Kļūda! Tukšs laukums.", ref ErrorLabel);
 
-            _mainManager.ShowButtonManage(ref ToStartGame, activeMatch.Players, timeInput, placeInput);
+            _mainManager.ShowButtonManage(ref ToStartGame, activeMatch.Players, timeInput, placeInput, tesniesi);
         }
 
         public void GoToHome(object sender, EventArgs e)
@@ -475,7 +475,7 @@ namespace Bakalaurs
         private void ResetNewGameDate()
         {
             pOneFirstName.Text = pOneLastName.Text = firstNumber.Text = pSecondFirstName.Text = pSecondLastName.Text 
-                = secondNumber.Text = textBox1.Text = textBox2.Text = timeInput.Text = placeInput.Text = string.Empty;
+                = secondNumber.Text = textBox1.Text = textBox2.Text = timeInput.Text = placeInput.Text = tesniesi.Text = string.Empty;
 
             richTextBox1.Clear();
             richTextBox2.Clear();
@@ -485,24 +485,24 @@ namespace Bakalaurs
                 = AddTeamFirstPlayer.Visible = AddTeamSecondPlayer.Visible = label6.Visible = label7.Visible = false;
 
             SaveFirstTeamName.Visible = SaveSecondTeamName.Visible = textBox1.Enabled
-                = textBox2.Enabled = timeInput.Enabled = placeInput.Enabled = btnSaveTime.Visible = true;
+                = textBox2.Enabled = timeInput.Enabled = placeInput.Enabled = btnSaveTime.Visible = tesniesi.Enabled  = true;
         }
 
         private void SavePlaceAndTime(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(placeInput.Text) && !string.IsNullOrEmpty(timeInput.Text))
+            if (!string.IsNullOrEmpty(placeInput.Text) && !string.IsNullOrEmpty(timeInput.Text) && !string.IsNullOrEmpty(tesniesi.Text))
             {
-                placeInput.Enabled = timeInput.Enabled = false;
+                placeInput.Enabled = timeInput.Enabled = tesniesi.Enabled = false;
                 btnSaveTime.Visible = false;
                 ErrorLabel.Text = string.Empty;
 
                 activeMatch.Place = placeInput.Text;
                 activeMatch.Time = timeInput.Text;
 
-                _mainManager.ShowButtonManage(ref ToStartGame, activeMatch.Players, timeInput, placeInput);
+                _mainManager.ShowButtonManage(ref ToStartGame, activeMatch.Players, timeInput, placeInput, tesniesi);
             }
             else
-                _mainManager.SetError("Laiks vai vieta bija tukši", ref ErrorLabel);
+                _mainManager.SetError("Laiks, vieta vai tiesnieši bija tukši", ref ErrorLabel);
         }
     }
 }

@@ -94,6 +94,8 @@
             this.addThreePtButton = new System.Windows.Forms.Button();
             this.addTwoPtButton = new System.Windows.Forms.Button();
             this.addOnePtButton = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tesniesi = new System.Windows.Forms.TextBox();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.CreateGame.SuspendLayout();
@@ -225,6 +227,8 @@
             // 
             // CreateGame
             // 
+            this.CreateGame.Controls.Add(this.tesniesi);
+            this.CreateGame.Controls.Add(this.label11);
             this.CreateGame.Controls.Add(this.btnSaveTime);
             this.CreateGame.Controls.Add(this.timeInput);
             this.CreateGame.Controls.Add(this.Laiks);
@@ -264,7 +268,7 @@
             this.btnSaveTime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnSaveTime.ForeColor = System.Drawing.Color.Green;
-            this.btnSaveTime.Location = new System.Drawing.Point(585, 5);
+            this.btnSaveTime.Location = new System.Drawing.Point(714, 5);
             this.btnSaveTime.Name = "btnSaveTime";
             this.btnSaveTime.Size = new System.Drawing.Size(90, 30);
             this.btnSaveTime.TabIndex = 35;
@@ -274,16 +278,17 @@
             // 
             // timeInput
             // 
-            this.timeInput.Location = new System.Drawing.Point(361, 5);
+            this.timeInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.timeInput.Location = new System.Drawing.Point(259, 5);
             this.timeInput.Name = "timeInput";
-            this.timeInput.Size = new System.Drawing.Size(202, 29);
+            this.timeInput.Size = new System.Drawing.Size(81, 26);
             this.timeInput.TabIndex = 34;
             // 
             // Laiks
             // 
             this.Laiks.AutoSize = true;
             this.Laiks.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.Laiks.Location = new System.Drawing.Point(294, 8);
+            this.Laiks.Location = new System.Drawing.Point(199, 8);
             this.Laiks.Name = "Laiks";
             this.Laiks.Size = new System.Drawing.Size(57, 24);
             this.Laiks.TabIndex = 33;
@@ -291,9 +296,10 @@
             // 
             // placeInput
             // 
+            this.placeInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.placeInput.Location = new System.Drawing.Point(70, 5);
             this.placeInput.Name = "placeInput";
-            this.placeInput.Size = new System.Drawing.Size(202, 29);
+            this.placeInput.Size = new System.Drawing.Size(121, 26);
             this.placeInput.TabIndex = 32;
             // 
             // Vieta
@@ -897,6 +903,24 @@
             this.addOnePtButton.UseVisualStyleBackColor = false;
             this.addOnePtButton.Click += new System.EventHandler(this.AddOnePointToActivePlayer);
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.label11.Location = new System.Drawing.Point(346, 8);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(90, 24);
+            this.label11.TabIndex = 36;
+            this.label11.Text = "Tiesnieši:";
+            // 
+            // tesniesi
+            // 
+            this.tesniesi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tesniesi.Location = new System.Drawing.Point(437, 5);
+            this.tesniesi.Name = "tesniesi";
+            this.tesniesi.Size = new System.Drawing.Size(271, 26);
+            this.tesniesi.TabIndex = 37;
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -999,6 +1023,8 @@
         private System.Windows.Forms.TextBox placeInput;
         private System.Windows.Forms.Label Vieta;
         private System.Windows.Forms.Button btnSaveTime;
+        private System.Windows.Forms.TextBox tesniesi;
+        private System.Windows.Forms.Label label11;
     }
 }
 
