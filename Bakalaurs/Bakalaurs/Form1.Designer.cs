@@ -39,6 +39,11 @@
             this.buttonExit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.CreateGame = new System.Windows.Forms.Panel();
+            this.btnSaveTime = new System.Windows.Forms.Button();
+            this.timeInput = new System.Windows.Forms.TextBox();
+            this.Laiks = new System.Windows.Forms.Label();
+            this.placeInput = new System.Windows.Forms.TextBox();
+            this.Vieta = new System.Windows.Forms.Label();
             this.ToStartGame = new System.Windows.Forms.Button();
             this.secondNumber = new System.Windows.Forms.TextBox();
             this.firstNumber = new System.Windows.Forms.TextBox();
@@ -55,6 +60,7 @@
             this.SaveSecondTeamName = new System.Windows.Forms.Button();
             this.SaveFirstTeamName = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -219,6 +225,11 @@
             // 
             // CreateGame
             // 
+            this.CreateGame.Controls.Add(this.btnSaveTime);
+            this.CreateGame.Controls.Add(this.timeInput);
+            this.CreateGame.Controls.Add(this.Laiks);
+            this.CreateGame.Controls.Add(this.placeInput);
+            this.CreateGame.Controls.Add(this.Vieta);
             this.CreateGame.Controls.Add(this.ToStartGame);
             this.CreateGame.Controls.Add(this.secondNumber);
             this.CreateGame.Controls.Add(this.firstNumber);
@@ -235,6 +246,7 @@
             this.CreateGame.Controls.Add(this.SaveSecondTeamName);
             this.CreateGame.Controls.Add(this.SaveFirstTeamName);
             this.CreateGame.Controls.Add(this.panel4);
+            this.CreateGame.Controls.Add(this.panel5);
             this.CreateGame.Controls.Add(this.label5);
             this.CreateGame.Controls.Add(this.label4);
             this.CreateGame.Controls.Add(this.textBox2);
@@ -245,6 +257,54 @@
             this.CreateGame.Name = "CreateGame";
             this.CreateGame.Size = new System.Drawing.Size(810, 518);
             this.CreateGame.TabIndex = 0;
+            // 
+            // btnSaveTime
+            // 
+            this.btnSaveTime.BackColor = System.Drawing.Color.Transparent;
+            this.btnSaveTime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnSaveTime.ForeColor = System.Drawing.Color.Green;
+            this.btnSaveTime.Location = new System.Drawing.Point(585, 5);
+            this.btnSaveTime.Name = "btnSaveTime";
+            this.btnSaveTime.Size = new System.Drawing.Size(90, 30);
+            this.btnSaveTime.TabIndex = 35;
+            this.btnSaveTime.Text = "OK";
+            this.btnSaveTime.UseVisualStyleBackColor = false;
+            this.btnSaveTime.Click += new System.EventHandler(this.SavePlaceAndTime);
+            // 
+            // timeInput
+            // 
+            this.timeInput.Location = new System.Drawing.Point(361, 5);
+            this.timeInput.Name = "timeInput";
+            this.timeInput.Size = new System.Drawing.Size(202, 29);
+            this.timeInput.TabIndex = 34;
+            // 
+            // Laiks
+            // 
+            this.Laiks.AutoSize = true;
+            this.Laiks.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.Laiks.Location = new System.Drawing.Point(294, 8);
+            this.Laiks.Name = "Laiks";
+            this.Laiks.Size = new System.Drawing.Size(57, 24);
+            this.Laiks.TabIndex = 33;
+            this.Laiks.Text = "Laiks:";
+            // 
+            // placeInput
+            // 
+            this.placeInput.Location = new System.Drawing.Point(70, 5);
+            this.placeInput.Name = "placeInput";
+            this.placeInput.Size = new System.Drawing.Size(202, 29);
+            this.placeInput.TabIndex = 32;
+            // 
+            // Vieta
+            // 
+            this.Vieta.AutoSize = true;
+            this.Vieta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.Vieta.Location = new System.Drawing.Point(3, 8);
+            this.Vieta.Name = "Vieta";
+            this.Vieta.Size = new System.Drawing.Size(57, 24);
+            this.Vieta.TabIndex = 31;
+            this.Vieta.Text = "Vieta:";
             // 
             // ToStartGame
             // 
@@ -263,7 +323,7 @@
             // 
             // secondNumber
             // 
-            this.secondNumber.Location = new System.Drawing.Point(289, 380);
+            this.secondNumber.Location = new System.Drawing.Point(289, 424);
             this.secondNumber.Name = "secondNumber";
             this.secondNumber.Size = new System.Drawing.Size(51, 29);
             this.secondNumber.TabIndex = 29;
@@ -271,7 +331,7 @@
             // 
             // firstNumber
             // 
-            this.firstNumber.Location = new System.Drawing.Point(289, 135);
+            this.firstNumber.Location = new System.Drawing.Point(289, 179);
             this.firstNumber.Name = "firstNumber";
             this.firstNumber.Size = new System.Drawing.Size(51, 29);
             this.firstNumber.TabIndex = 28;
@@ -279,25 +339,25 @@
             // 
             // richTextBox2
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(454, 241);
+            this.richTextBox2.Location = new System.Drawing.Point(454, 285);
             this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(263, 220);
+            this.richTextBox2.Size = new System.Drawing.Size(335, 220);
             this.richTextBox2.TabIndex = 27;
             this.richTextBox2.Text = "";
             this.richTextBox2.Visible = false;
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(454, 7);
+            this.richTextBox1.Location = new System.Drawing.Point(454, 51);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(263, 220);
+            this.richTextBox1.Size = new System.Drawing.Size(335, 220);
             this.richTextBox1.TabIndex = 26;
             this.richTextBox1.Text = "";
             this.richTextBox1.Visible = false;
             // 
             // pSecondLastName
             // 
-            this.pSecondLastName.Location = new System.Drawing.Point(148, 380);
+            this.pSecondLastName.Location = new System.Drawing.Point(148, 424);
             this.pSecondLastName.Name = "pSecondLastName";
             this.pSecondLastName.Size = new System.Drawing.Size(135, 29);
             this.pSecondLastName.TabIndex = 25;
@@ -309,7 +369,7 @@
             this.AddTeamSecondPlayer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddTeamSecondPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AddTeamSecondPlayer.ForeColor = System.Drawing.Color.Green;
-            this.AddTeamSecondPlayer.Location = new System.Drawing.Point(346, 380);
+            this.AddTeamSecondPlayer.Location = new System.Drawing.Point(346, 424);
             this.AddTeamSecondPlayer.Name = "AddTeamSecondPlayer";
             this.AddTeamSecondPlayer.Size = new System.Drawing.Size(90, 30);
             this.AddTeamSecondPlayer.TabIndex = 24;
@@ -320,7 +380,7 @@
             // 
             // pSecondFirstName
             // 
-            this.pSecondFirstName.Location = new System.Drawing.Point(7, 380);
+            this.pSecondFirstName.Location = new System.Drawing.Point(7, 424);
             this.pSecondFirstName.Name = "pSecondFirstName";
             this.pSecondFirstName.Size = new System.Drawing.Size(135, 29);
             this.pSecondFirstName.TabIndex = 23;
@@ -330,7 +390,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label7.Location = new System.Drawing.Point(105, 349);
+            this.label7.Location = new System.Drawing.Point(105, 388);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(86, 24);
             this.label7.TabIndex = 22;
@@ -339,7 +399,7 @@
             // 
             // pOneLastName
             // 
-            this.pOneLastName.Location = new System.Drawing.Point(148, 135);
+            this.pOneLastName.Location = new System.Drawing.Point(148, 179);
             this.pOneLastName.Name = "pOneLastName";
             this.pOneLastName.Size = new System.Drawing.Size(135, 29);
             this.pOneLastName.TabIndex = 21;
@@ -351,7 +411,7 @@
             this.AddTeamFirstPlayer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddTeamFirstPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AddTeamFirstPlayer.ForeColor = System.Drawing.Color.Green;
-            this.AddTeamFirstPlayer.Location = new System.Drawing.Point(346, 135);
+            this.AddTeamFirstPlayer.Location = new System.Drawing.Point(346, 179);
             this.AddTeamFirstPlayer.Name = "AddTeamFirstPlayer";
             this.AddTeamFirstPlayer.Size = new System.Drawing.Size(90, 30);
             this.AddTeamFirstPlayer.TabIndex = 20;
@@ -362,7 +422,7 @@
             // 
             // pOneFirstName
             // 
-            this.pOneFirstName.Location = new System.Drawing.Point(7, 135);
+            this.pOneFirstName.Location = new System.Drawing.Point(7, 179);
             this.pOneFirstName.Name = "pOneFirstName";
             this.pOneFirstName.Size = new System.Drawing.Size(135, 29);
             this.pOneFirstName.TabIndex = 19;
@@ -372,7 +432,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label6.Location = new System.Drawing.Point(105, 104);
+            this.label6.Location = new System.Drawing.Point(105, 148);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(86, 24);
             this.label6.TabIndex = 18;
@@ -385,7 +445,7 @@
             this.SaveSecondTeamName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SaveSecondTeamName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SaveSecondTeamName.ForeColor = System.Drawing.Color.Green;
-            this.SaveSecondTeamName.Location = new System.Drawing.Point(346, 290);
+            this.SaveSecondTeamName.Location = new System.Drawing.Point(346, 334);
             this.SaveSecondTeamName.Name = "SaveSecondTeamName";
             this.SaveSecondTeamName.Size = new System.Drawing.Size(90, 30);
             this.SaveSecondTeamName.TabIndex = 17;
@@ -399,7 +459,7 @@
             this.SaveFirstTeamName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SaveFirstTeamName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SaveFirstTeamName.ForeColor = System.Drawing.Color.Green;
-            this.SaveFirstTeamName.Location = new System.Drawing.Point(346, 47);
+            this.SaveFirstTeamName.Location = new System.Drawing.Point(346, 91);
             this.SaveFirstTeamName.Name = "SaveFirstTeamName";
             this.SaveFirstTeamName.Size = new System.Drawing.Size(90, 30);
             this.SaveFirstTeamName.TabIndex = 16;
@@ -410,16 +470,24 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.panel4.Location = new System.Drawing.Point(3, 233);
+            this.panel4.Location = new System.Drawing.Point(3, 278);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(810, 2);
             this.panel4.TabIndex = 15;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.panel5.Location = new System.Drawing.Point(3, 40);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(810, 2);
+            this.panel5.TabIndex = 15;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label5.Location = new System.Drawing.Point(3, 293);
+            this.label5.Location = new System.Drawing.Point(3, 337);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(110, 24);
             this.label5.TabIndex = 14;
@@ -429,7 +497,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label4.Location = new System.Drawing.Point(3, 50);
+            this.label4.Location = new System.Drawing.Point(3, 94);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(110, 24);
             this.label4.TabIndex = 13;
@@ -437,14 +505,14 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(138, 290);
+            this.textBox2.Location = new System.Drawing.Point(138, 334);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(202, 29);
             this.textBox2.TabIndex = 12;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(138, 47);
+            this.textBox1.Location = new System.Drawing.Point(138, 91);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(202, 29);
             this.textBox1.TabIndex = 11;
@@ -454,7 +522,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label3.Location = new System.Drawing.Point(3, 246);
+            this.label3.Location = new System.Drawing.Point(3, 290);
             this.label3.MaximumSize = new System.Drawing.Size(300, 31);
             this.label3.MinimumSize = new System.Drawing.Size(300, 31);
             this.label3.Name = "label3";
@@ -469,7 +537,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label2.Location = new System.Drawing.Point(3, 3);
+            this.label2.Location = new System.Drawing.Point(3, 47);
             this.label2.MaximumSize = new System.Drawing.Size(300, 31);
             this.label2.MinimumSize = new System.Drawing.Size(300, 31);
             this.label2.Name = "label2";
@@ -530,7 +598,7 @@
             this.StatisticOfGamePanel.Controls.Add(this.StatisticTeamOne);
             this.StatisticOfGamePanel.Location = new System.Drawing.Point(178, 45);
             this.StatisticOfGamePanel.Name = "StatisticOfGamePanel";
-            this.StatisticOfGamePanel.Size = new System.Drawing.Size(810, 518);
+            this.StatisticOfGamePanel.Size = new System.Drawing.Size(0, 518);
             this.StatisticOfGamePanel.TabIndex = 11;
             // 
             // label10
@@ -540,7 +608,7 @@
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.label10.Location = new System.Drawing.Point(247, 20);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(295, 17);
+            this.label10.Size = new System.Drawing.Size(326, 17);
             this.label10.TabIndex = 3;
             this.label10.Text = "#   Vārds   Uzvārds    Punkti  (MSD AST REB Foul)";
             // 
@@ -551,7 +619,7 @@
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.label9.Location = new System.Drawing.Point(247, 258);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(291, 17);
+            this.label9.Size = new System.Drawing.Size(322, 17);
             this.label9.TabIndex = 2;
             this.label9.Text = "#  Vārds   Uzvārds    Punkti  (MSD AST REB Foul)";
             // 
@@ -883,6 +951,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button SaveSecondTeamName;
         private System.Windows.Forms.Button SaveFirstTeamName;
@@ -925,6 +994,11 @@
         private System.Windows.Forms.Button removeOnePt;
         private System.Windows.Forms.Button removeFoulbtn;
         private System.Windows.Forms.Button addfoulbtn;
+        private System.Windows.Forms.TextBox timeInput;
+        private System.Windows.Forms.Label Laiks;
+        private System.Windows.Forms.TextBox placeInput;
+        private System.Windows.Forms.Label Vieta;
+        private System.Windows.Forms.Button btnSaveTime;
     }
 }
 

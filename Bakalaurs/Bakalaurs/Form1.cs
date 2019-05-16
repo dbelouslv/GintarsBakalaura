@@ -474,8 +474,8 @@ namespace Bakalaurs
 
         private void ResetNewGameDate()
         {
-            pOneFirstName.Text = pOneLastName.Text = firstNumber.Text
-                = pSecondFirstName.Text = pSecondLastName.Text = secondNumber.Text = textBox1.Text = textBox2.Text = string.Empty;
+            pOneFirstName.Text = pOneLastName.Text = firstNumber.Text = pSecondFirstName.Text = pSecondLastName.Text 
+                = secondNumber.Text = textBox1.Text = textBox2.Text = timeInput.Text = placeInput.Text = string.Empty;
 
             richTextBox1.Clear();
             richTextBox2.Clear();
@@ -484,7 +484,23 @@ namespace Bakalaurs
                 = pSecondFirstName.Visible = pSecondLastName.Visible = secondNumber.Visible = ToStartGame.Visible 
                 = AddTeamFirstPlayer.Visible = AddTeamSecondPlayer.Visible = label6.Visible = label7.Visible = false;
 
-            SaveFirstTeamName.Visible = SaveSecondTeamName.Visible = textBox1.Enabled = textBox2.Enabled = true;
+            SaveFirstTeamName.Visible = SaveSecondTeamName.Visible = textBox1.Enabled
+                = textBox2.Enabled = timeInput.Enabled = placeInput.Enabled = btnSaveTime.Visible = true;
+        }
+
+        private void SavePlaceAndTime(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(placeInput.Text) && !string.IsNullOrEmpty(timeInput.Text))
+            {
+                placeInput.Enabled = timeInput.Enabled = false;
+                btnSaveTime.Visible = false;
+                ErrorLabel.Text = string.Empty;
+
+                activeMatch.Place = placeInput.Text;
+                activeMatch.Time = timeInput.Text;
+            }
+            else
+                ErrorLabel.Text = "Laiks vai vieta bija tukši!";
         }
     }
 }
