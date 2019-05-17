@@ -325,20 +325,20 @@ namespace Bakalaurs
 
         public void ShowGameStatistic(object sender, EventArgs e)
         {
-            SetScrollPanelHeight(buttonShowStatistics.Height, buttonShowStatistics.Top, "Spēles statistika");
+            SetScrollPanelHeight(buttonShowStatistics.Height, buttonShowStatistics.Top, "Izvadīt spēles statistiku");
             SetActivePanel(PanelType.StatisticOfGame);
         }
 
         public void GoToManage(object sender, EventArgs e)
         {
-            SetScrollPanelHeight(buttonNewGame.Height, buttonNewGame.Top, "Sakt jaunu spēli");
+            SetScrollPanelHeight(buttonNewGame.Height, buttonNewGame.Top, "Kontrolēt spēli");
             SetActivePanel(PanelType.StartGame);
             SetRadioButtonsForManage();
         }
 
         public void GoToPrint(object sender, EventArgs e)
         {
-            SetScrollPanelHeight(buttonNewGame.Height, buttonNewGame.Top, "Saglabāt statistiku");
+            SetScrollPanelHeight(buttonNewGame.Height, buttonNewGame.Top, "Printēt spēles statistiku");
             SetActivePanel(PanelType.SaveStatistic);
             textSaglabat.Text = savedPath.Text = string.Empty;
         }

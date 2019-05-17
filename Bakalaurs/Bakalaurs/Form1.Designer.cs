@@ -618,7 +618,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(164, 46);
             this.label8.TabIndex = 0;
-            this.label8.Text = "SVEIKS";
+            this.label8.Text = "Sporta spēļu statistikas ievades programma \n\n\n Darba autors GIntars Lazda \n\n\n Daugavpils 2019";
             // 
             // StatisticOfGamePanel
             // 
@@ -815,7 +815,7 @@
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(66, 33);
             this.saveButton.TabIndex = 6;
-            this.saveButton.Text = "SAVE";
+            this.saveButton.Text = "SAGLABĀT";
             this.saveButton.UseVisualStyleBackColor = false;
             this.saveButton.Click += new System.EventHandler(this.SaveData);
             // 
@@ -926,7 +926,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(166, 36);
             this.button2.TabIndex = 16;
-            this.button2.Text = "Saglabāt";
+            this.button2.Text = "Saglabāts";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.Print);
             // 
