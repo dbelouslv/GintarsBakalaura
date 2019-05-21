@@ -666,9 +666,9 @@
             this.ManageGame.Controls.Add(this.addThreePtButton);
             this.ManageGame.Controls.Add(this.addTwoPtButton);
             this.ManageGame.Controls.Add(this.addOnePtButton);
-            this.ManageGame.Location = new System.Drawing.Point(184, 62);
+            this.ManageGame.Location = new System.Drawing.Point(184, 22);
             this.ManageGame.Name = "ManageGame";
-            this.ManageGame.Size = new System.Drawing.Size(810, 518);
+            this.ManageGame.Size = new System.Drawing.Size(810, 570);
             this.ManageGame.TabIndex = 12;
             // 
             // removeFoulbtn
